@@ -6,16 +6,272 @@
     <description>Recent content in Syuan Tech Blog on Syuan Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Sun, 28 Oct 2018 17:18:39 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 28 Oct 2018 20:27:16 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>新文章</title>
-      <link>https://eva19950630.github.io/2018/%E6%96%B0%E6%96%87%E7%AB%A0/</link>
-      <pubDate>Sun, 28 Oct 2018 17:18:39 +0800</pubDate>
+      <title>Markdown Note</title>
+      <link>https://eva19950630.github.io/2018/markdown-note/</link>
+      <pubDate>Sun, 28 Oct 2018 20:27:16 +0800</pubDate>
       
-      <guid>https://eva19950630.github.io/2018/%E6%96%B0%E6%96%87%E7%AB%A0/</guid>
-      <description></description>
+      <guid>https://eva19950630.github.io/2018/markdown-note/</guid>
+      <description>
+
+&lt;h2 id=&#34;一般文字-text&#34;&gt;一般文字(Text)&lt;/h2&gt;
+
+&lt;p&gt;test&lt;/p&gt;
+
+&lt;h2 id=&#34;標題-title&#34;&gt;標題(Title)&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;# test1.1
+## test1.2
+### test1.3
+#### test1.4
+##### test1.5
+###### test1.6
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;test1-1&#34;&gt;test1.1&lt;/h1&gt;
+
+&lt;h2 id=&#34;test1-2&#34;&gt;test1.2&lt;/h2&gt;
+
+&lt;h3 id=&#34;test1-3&#34;&gt;test1.3&lt;/h3&gt;
+
+&lt;h4 id=&#34;test1-4&#34;&gt;test1.4&lt;/h4&gt;
+
+&lt;h5 id=&#34;test1-5&#34;&gt;test1.5&lt;/h5&gt;
+
+&lt;h6 id=&#34;test1-6&#34;&gt;test1.6&lt;/h6&gt;
+
+&lt;h2 id=&#34;引用文字-blockquote&#34;&gt;引用文字(Blockquote)&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;&amp;gt; test2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;test2&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;粗體-斜體-刪除線&#34;&gt;粗體/斜體/刪除線&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;# 粗體
+**test3.1**
+__test3.2__
+# 斜體
+*test4.1*
+_test4.2_
+# 刪除線
+~~test5~~
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;test3.1&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;test3.2&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;test4.1&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;test4.2&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;del&gt;test5&lt;/del&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;無序列點&#34;&gt;無序列點&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;* test6.1
+* test6.2
+* test6.3
+
+- test6.4
+- test6.5
+- test6.6
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;test6.1&lt;/li&gt;
+&lt;li&gt;test6.2&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;test6.3&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;test6.4&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;test6.5&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;test6.6&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;有序列點&#34;&gt;有序列點&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;1. test7.1
+2. test7.2
+3. test7.3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;test7.1&lt;/li&gt;
+&lt;li&gt;test7.2&lt;/li&gt;
+&lt;li&gt;test7.3&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;巢狀列點&#34;&gt;巢狀列點&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;1. test8.1
+   1. test8.1.1
+   2. test8.1.2
+2. test8.2
+   * test8.2.1
+   * test8.2.2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;test8.1
+
+&lt;ol&gt;
+&lt;li&gt;test8.1.1&lt;/li&gt;
+&lt;li&gt;test8.1.2&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;test8.2
+
+&lt;ul&gt;
+&lt;li&gt;test8.2.1&lt;/li&gt;
+&lt;li&gt;test8.2.2&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;code&#34;&gt;Code&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;`test9`
+
+```html
+&amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;test10&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+(```)
+# 括號()去掉
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;test9&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;test10&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;連結-link&#34;&gt;連結(Link)&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;# 符號皆為半型
+[test11](https://www.google.com/)
+test12，連結至Google(https://www.google.com/)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.google.com/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;test11&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;test12，連結至Google(&lt;a href=&#34;https://www.google.com/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://www.google.com/&lt;/a&gt;)&lt;/p&gt;
+
+&lt;h2 id=&#34;分隔線&#34;&gt;分隔線&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;***
+----
+- - -
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;hr /&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;表格-table&#34;&gt;表格(Table)&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;名稱 | 說明
+---------- | ----------
+test13.1 | about test13.1
+test13.2 | about test13.2
+test13.3 | about test13.3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名稱&lt;/th&gt;
+&lt;th&gt;說明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;test13.1&lt;/td&gt;
+&lt;td&gt;about test13.1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;test13.2&lt;/td&gt;
+&lt;td&gt;about test13.2&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;test13.3&lt;/td&gt;
+&lt;td&gt;about test13.3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;圖片-image&#34;&gt;圖片(Image)&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;![Alt text](/path/to/img.jpg)
+
+# hugo blog需將圖片放置static資料夾中，資料夾內可自由新增其他子資料夾
+![test14](/18_10_28_markdown-note/test14.jpg)
+
+# 也可直接使用&amp;lt;img&amp;gt;標籤，即可調整長寬
+&amp;lt;img src=&amp;quot;/18_10_28_markdown-note/test14.jpg&amp;quot; width=&amp;quot;300&amp;quot; height=&amp;quot;300&amp;quot;&amp;gt;&amp;lt;/img&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://eva19950630.github.io/18_10_28_markdown-note/test14.jpg&#34; alt=&#34;test14&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://eva19950630.github.io/18_10_28_markdown-note/test14.jpg&#34; width=&#34;300&#34; height=&#34;300&#34;&gt;&lt;/img&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;跳脫字元&#34;&gt;跳脫字元&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;# 下方這些符號插入後會產生效果，為了不顯示效果，在下方符號前面插入反斜線(\)，即可顯示原符號
+# \ ` * _ {} [] () # + - . !
+
+\*test15\*
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;*test15*&lt;/p&gt;
+
+&lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://markdown.tw/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://markdown.tw/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/markdown/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://ithelp.ithome.com.tw/markdown/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>
@@ -24,15 +280,6 @@
       <pubDate>Sun, 28 Oct 2018 16:11:24 +0800</pubDate>
       
       <guid>https://eva19950630.github.io/about/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>My First Post</title>
-      <link>https://eva19950630.github.io/2018/my-first-post/</link>
-      <pubDate>Sun, 28 Oct 2018 16:11:24 +0800</pubDate>
-      
-      <guid>https://eva19950630.github.io/2018/my-first-post/</guid>
       <description></description>
     </item>
     
