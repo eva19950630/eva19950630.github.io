@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Syuan Shih">
+  
+  
+  
+  <link rel="prev" href="https://eva19950630.github.io/2018/18_10_28_markdown-note/" />
+  
+  <link rel="canonical" href="https://eva19950630.github.io/2018/18_10_29_github-pages-hugo/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           使用Github Pages架設Hugo靜態blog | Syuan Tech Blog
+       
+  </title>
+  <meta name="title" content="使用Github Pages架設Hugo靜態blog | Syuan Tech Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://eva19950630.github.io/"
+    },
+    "articleSection" : "posts",
+    "name" : "使用Github Pages架設Hugo靜態blog",
+    "headline" : "使用Github Pages架設Hugo靜態blog",
+    "description" : "Github除了可以使用Git Server儲存code之外，也可當作靜態網頁的Server，所以可作為個人靜態網頁或blog，但僅能使用git指令上傳修改檔案，而且只能顯示「靜態」網頁內容。
+操作步驟分為兩部分(使用MacOS)  在本地端架設Hugo個人網站(blog) 部署至Github上成為個人Github pages  第一部分：在本地端架設Hugo個人網站(blog) Hugo為open source的靜態網頁框架產生器，可快速建立個人網站或blog。
+Step1：使用terminal安裝Homebrew Homebrew為open source的軟體套件管理工具，可簡化在Mac上安裝或卸載套件的過程。
+/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;  Step2：使用terminal安裝Hugo brew install hugo  Step3：使用Hugo創建新網站 到想要的目錄下，創建Hugo新網站。
+# [website-name]為自定網站資料夾名稱 hugo new site [website-name] cd [website-name]  創建完成後，可在terminal看到以下畫面： cd至該網站資料夾內，可看到內部資料夾結構如下： Step4：更換主題(Theme) 官網提供許多網站主題，若找到合適的即可使用git clone下載該主題。
+在官網主題內找尋喜歡的主題，並點選進去： 複製該主題的git網址，並使用git clone下載至themes資料夾中： cd至網站資料夾內的themes資料夾中：
+cd themes git clone [該主題git網址]  Step5：編輯config.toml檔案 config.toml檔案在根目錄下，使用sublime或其他文字編輯器進行修改，由於之後會將此Hugo個人網站部署至Github上，因此baseURL需配置為Github pages的網址，而theme為更換剛剛Step4下載的主題資料夾名稱。
+baseURL = &quot;https://[個人Github帳號].github.io/&quot; # [個人Github帳號]需改為Github帳號 languageCode = &quot;zh-tw&quot; title = &quot;[My New Hugo Site]&quot; # [My New Hugo Site]為自定網站名稱 theme = &quot;[Theme dir name]&quot; # [Theme dir name]為主題資料夾名稱  Step6：建立新文章(post) 在根目錄下輸入以下指令建立新文章。",
+    "inLanguage" : "zh-tw",
+    "author" : "Syuan Shih",
+    "creator" : "Syuan Shih",
+    "publisher": "Syuan Shih",
+    "accountablePerson" : "Syuan Shih",
+    "copyrightHolder" : "Syuan Shih",
+    "copyrightYear" : "2018",
+    "datePublished": "2018-10-29 09:50:03 &#43;0800 CST",
+    "dateModified" : "2018-10-29 09:50:03 &#43;0800 CST",
+    "url" : "https://eva19950630.github.io/2018/18_10_29_github-pages-hugo/",
+    "wordCount" : "208",
+    "keywords" : [ "Github","Hugo", "Syuan Tech Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://eva19950630.github.io/">Syuan Tech Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://eva19950630.github.io/">Syuan Tech Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">使用Github Pages架設Hugo靜態blog</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://eva19950630.github.io/" rel="author">Syuan Shih</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2018-10-29 itemprop="datePublished">October 29, 2018</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://eva19950630.github.io/categories/text-editing-blog-github/"> Text Editing/Blog/Github </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>Github除了可以使用Git Server儲存code之外，也可當作靜態網頁的Server，所以可作為個人靜態網頁或blog，但僅能使用git指令上傳修改檔案，而且只能顯示「靜態」網頁內容。</p>
+
+<h3 id="操作步驟分為兩部分-使用macos">操作步驟分為兩部分(使用MacOS)</h3>
+
+<ol>
+<li>在本地端架設Hugo個人網站(blog)</li>
+<li>部署至Github上成為個人Github pages</li>
+</ol>
+
+<h2 id="第一部分-在本地端架設hugo個人網站-blog">第一部分：在本地端架設Hugo個人網站(blog)</h2>
+
+<p>Hugo為open source的靜態網頁框架產生器，可快速建立個人網站或blog。</p>
+
+<h3 id="step1-使用terminal安裝homebrew">Step1：使用terminal安裝Homebrew</h3>
+
+<p>Homebrew為open source的軟體套件管理工具，可簡化在Mac上安裝或卸載套件的過程。</p>
+
+<pre><code class="language-bash">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></pre>
+
+<h3 id="step2-使用terminal安裝hugo">Step2：使用terminal安裝Hugo</h3>
+
+<pre><code class="language-bash">brew install hugo
+</code></pre>
+
+<h3 id="step3-使用hugo創建新網站">Step3：使用Hugo創建新網站</h3>
+
+<p>到想要的目錄下，創建Hugo新網站。</p>
+
+<pre><code class="language-bash"># [website-name]為自定網站資料夾名稱
+hugo new site [website-name]
+cd [website-name]
+</code></pre>
+
+<p>創建完成後，可在terminal看到以下畫面：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/18_10_29_github-pages-hugo/001.png" alt="成功建立Hugo網站" class="lazyload"><figcaption class="image-caption">成功建立Hugo網站</figcaption></figure></p>
+
+<p>cd至該網站資料夾內，可看到內部資料夾結構如下：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/18_10_29_github-pages-hugo/002.png" alt="Hugo內部資料夾結構" class="lazyload"><figcaption class="image-caption">Hugo內部資料夾結構</figcaption></figure></p>
+
+<h3 id="step4-更換主題-theme">Step4：更換主題(Theme)</h3>
+
+<p><a href="https://themes.gohugo.io/" rel="nofollow noreferrer" target="_blank">官網</a>提供許多網站主題，若找到合適的即可使用git clone下載該主題。</p>
+
+<p>在官網主題內找尋喜歡的主題，並點選進去：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/18_10_29_github-pages-hugo/003.png" alt="進入主題github" class="lazyload"><figcaption class="image-caption">進入主題github</figcaption></figure></p>
+
+<p>複製該主題的git網址，並使用git clone下載至<code>themes</code>資料夾中：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/18_10_29_github-pages-hugo/004.png" alt="複製git網址" class="lazyload"><figcaption class="image-caption">複製git網址</figcaption></figure></p>
+
+<p>cd至網站資料夾內的<code>themes</code>資料夾中：</p>
+
+<pre><code class="language-bash">cd themes
+git clone [該主題git網址]
+</code></pre>
+
+<h3 id="step5-編輯config-toml檔案">Step5：編輯config.toml檔案</h3>
+
+<p>config.toml檔案在根目錄下，使用sublime或其他文字編輯器進行修改，由於之後會將此Hugo個人網站部署至Github上，因此<code>baseURL</code>需配置為Github pages的網址，而theme為更換剛剛Step4下載的主題資料夾名稱。</p>
+
+<pre><code class="language-text">baseURL = &quot;https://[個人Github帳號].github.io/&quot;   # [個人Github帳號]需改為Github帳號
+languageCode = &quot;zh-tw&quot;
+title = &quot;[My New Hugo Site]&quot;   # [My New Hugo Site]為自定網站名稱
+theme = &quot;[Theme dir name]&quot;   # [Theme dir name]為主題資料夾名稱
+</code></pre>
+
+<h3 id="step6-建立新文章-post">Step6：建立新文章(post)</h3>
+
+<p>在根目錄下輸入以下指令建立新文章。</p>
+
+<pre><code class="language-bash">hugo new posts/[post name].md   # [post name]為自定文章檔案名稱
+</code></pre>
+
+<p>按下enter後，則可以在terminal看到以下建立成功畫面：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/18_10_29_github-pages-hugo/005.png" alt="成功建立新文章" class="lazyload"><figcaption class="image-caption">成功建立新文章</figcaption></figure></p>
+
+<p>若建立成功，則可以在目錄下的<code>/contents/posts</code>資料夾中，看見剛剛新增的文章檔案(.md檔)，使用文字編輯器修改此md檔。</p>
+
+<pre><code class="language-text">---
+title: &quot;[New Post]&quot;   # [New Post]為自定文章標題
+date: 2018-10-29T11:06:37+08:00
+draft: false   # 原本為true，改為false
+---
+
+[此處可輸入文章內容]
+</code></pre>
+
+<p>文章使用markdown語法編輯，未來建立文章皆使用Step6這個方式，<code>draft</code>記得改為false。</p>
+
+<p>若文章中有使用圖片，圖片檔案放入根目錄中的<code>/static</code>資料夾內。</p>
+
+<h3 id="step7-本地端執行測試">Step7：本地端執行測試</h3>
+
+<p>以上步驟即可完成Hugo網站的大致雛形，若想看成品，可在本地端使用terminal先執行測試(在根目錄下)。</p>
+
+<pre><code class="language-bash">hugo serve -D
+</code></pre>
+
+<p>打開瀏覽器，輸入網址<a href="http://localhost:1313/" rel="nofollow noreferrer" target="_blank">http://localhost:1313/</a>，可看到如下畫面：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/18_10_29_github-pages-hugo/006.png" alt="Hugo網站創建完成" class="lazyload"><figcaption class="image-caption">Hugo網站創建完成</figcaption></figure></p>
+
+<h2 id="第二部分-部署至github上成為個人github-pages">第二部分：部署至Github上成為個人Github pages</h2>
+
+<p>Github提供靜態網站的server，使用者可將靜態網站上傳上去，作為Github pages，一隻帳號僅有一個主頁，這個部分將操作部署剛剛創建好的Hugo網站至Github上。</p>
+
+<h3 id="step1-在github上新增一個新repository">Step1：在Github上新增一個新repository</h3>
+
+<p>repository name取名為<code>[Github帳號].github.io</code>。</p>
+
+<h3 id="step2-在hugo網站根目錄下建立-public資料夾">Step2：在Hugo網站根目錄下建立/public資料夾</h3>
+
+<p>使用terminal在根目錄下輸入以下指令，執行完後會在根目錄下產生一個<code>public</code>資料夾。</p>
+
+<pre><code class="language-bash">hugo
+</code></pre>
+
+<h3 id="step3-在-public資料夾內初始化git並連結到github-pages">Step3：在/public資料夾內初始化git並連結到Github pages</h3>
+
+<p>先至Github將剛新增repo的git網址複製下來(如第一部分Step4第二張圖)。</p>
+
+<pre><code class="language-bash">cd public
+
+# 初始化git
+git init
+git remote add origin [貼上剛複製好的repo git URL]
+git remote -v   # 檢查origin名稱是否有遠端連結到該git URL
+
+# 建立第一個commit
+git add .
+git commit -m &quot;Initial commit&quot;
+git push -u origin master
+</code></pre>
+
+<p><code>Hint</code></p>
+
+<p>有時候在操作<code>git push</code>指令時，系統常常會告訴你要設定好要push去哪個分支，產生類似以下的錯誤。</p>
+
+<pre><code class="language-bash">git push
+
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+	git push --set-upstream origin master
+</code></pre>
+
+<p>若今天在push時加入<code>-u</code>這個參數：</p>
+
+<pre><code class="language-bash">git push -u origin master
+</code></pre>
+
+<p><code>-u</code>這個參數為表示設定upstream(上游)，以上述例子來看，<code>-u</code>設定下去後，就會把<code>origin/master</code>設定為本地<code>master</code>分支的upstream，下次要再執行<code>git push</code>指令而不加任何參數時，預設值則會知道是要將master這個分支推往origin這個遠端節點。</p>
+
+<h3 id="step4-查看個人github-pages">Step4：查看個人Github pages</h3>
+
+<p>上個步驟push完成後，打開瀏覽器輸入網址https://[Github帳號].github.io/，就可以看到自己的Github pages了。</p>
+
+<ul>
+<li><p>Hugo建立的網站要連結至Github pages，需在<code>public</code>資料夾下進行push，往後若網站進行修改後，則需在根目錄下先執行<code>hugo</code>指令，在cd至public資料夾中進行commit與push。</p></li>
+
+<li><p>另外，若想要將Hugo網站整個資料夾上傳到Github另一個repo，也是可以的，上傳過程中遇到資料夾重複上傳的warning可自動忽略。</p></li>
+</ul>
+
+<h3 id="reference">Reference</h3>
+
+<hr />
+
+<ul>
+<li><a href="https://gohugo.io/" rel="nofollow noreferrer" target="_blank">https://gohugo.io/</a></li>
+<li><a href="https://medium.com/@chs_wei/%E5%9C%A8-github-%E9%83%A8%E7%BD%B2-hugo-%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99-9c40682dfe40" rel="nofollow noreferrer" target="_blank">https://medium.com/@chs_wei/%E5%9C%A8-github-%E9%83%A8%E7%BD%B2-hugo-%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99-9c40682dfe40</a></li>
+<li><a href="https://gitbook.tw/chapters/github/using-github-pages.html" rel="nofollow noreferrer" target="_blank">https://gitbook.tw/chapters/github/using-github-pages.html</a></li>
+<li><a href="https://gitbook.tw/chapters/github/push-to-github.html" rel="nofollow noreferrer" target="_blank">https://gitbook.tw/chapters/github/push-to-github.html</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Syuan Shih </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://eva19950630.github.io/2018/18_10_29_github-pages-hugo/>https://eva19950630.github.io/2018/18_10_29_github-pages-hugo/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://eva19950630.github.io/tags/github/">
+                    #Github</a></span>
+            
+            <span class="tag"><a href="https://eva19950630.github.io/tags/hugo/">
+                    #Hugo</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://eva19950630.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://eva19950630.github.io/2018/18_10_28_markdown-note/" class="prev" rel="prev" title="Markdown筆記"><i class="iconfont icon-left"></i>&nbsp;Markdown筆記</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2018 - 2018</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://eva19950630.github.io/">Syuan Shih</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

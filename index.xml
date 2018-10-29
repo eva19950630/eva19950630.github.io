@@ -6,15 +6,198 @@
     <description>Recent content in Syuan Tech Blog on Syuan Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Sun, 28 Oct 2018 20:27:16 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Oct 2018 09:50:03 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Markdown Note</title>
-      <link>https://eva19950630.github.io/2018/markdown-note/</link>
+      <title>使用Github Pages架設Hugo靜態blog</title>
+      <link>https://eva19950630.github.io/2018/18_10_29_github-pages-hugo/</link>
+      <pubDate>Mon, 29 Oct 2018 09:50:03 +0800</pubDate>
+      
+      <guid>https://eva19950630.github.io/2018/18_10_29_github-pages-hugo/</guid>
+      <description>
+
+&lt;p&gt;Github除了可以使用Git Server儲存code之外，也可當作靜態網頁的Server，所以可作為個人靜態網頁或blog，但僅能使用git指令上傳修改檔案，而且只能顯示「靜態」網頁內容。&lt;/p&gt;
+
+&lt;h3 id=&#34;操作步驟分為兩部分-使用macos&#34;&gt;操作步驟分為兩部分(使用MacOS)&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;在本地端架設Hugo個人網站(blog)&lt;/li&gt;
+&lt;li&gt;部署至Github上成為個人Github pages&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;第一部分-在本地端架設hugo個人網站-blog&#34;&gt;第一部分：在本地端架設Hugo個人網站(blog)&lt;/h2&gt;
+
+&lt;p&gt;Hugo為open source的靜態網頁框架產生器，可快速建立個人網站或blog。&lt;/p&gt;
+
+&lt;h3 id=&#34;step1-使用terminal安裝homebrew&#34;&gt;Step1：使用terminal安裝Homebrew&lt;/h3&gt;
+
+&lt;p&gt;Homebrew為open source的軟體套件管理工具，可簡化在Mac上安裝或卸載套件的過程。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;/usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;step2-使用terminal安裝hugo&#34;&gt;Step2：使用terminal安裝Hugo&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;brew install hugo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;step3-使用hugo創建新網站&#34;&gt;Step3：使用Hugo創建新網站&lt;/h3&gt;
+
+&lt;p&gt;到想要的目錄下，創建Hugo新網站。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# [website-name]為自定網站資料夾名稱
+hugo new site [website-name]
+cd [website-name]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;創建完成後，可在terminal看到以下畫面：
+&lt;img src=&#34;https://eva19950630.github.io/18_10_29_github-pages-hugo/001.png&#34; alt=&#34;成功建立Hugo網站&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;cd至該網站資料夾內，可看到內部資料夾結構如下：
+&lt;img src=&#34;https://eva19950630.github.io/18_10_29_github-pages-hugo/002.png&#34; alt=&#34;Hugo內部資料夾結構&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;step4-更換主題-theme&#34;&gt;Step4：更換主題(Theme)&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://themes.gohugo.io/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;官網&lt;/a&gt;提供許多網站主題，若找到合適的即可使用git clone下載該主題。&lt;/p&gt;
+
+&lt;p&gt;在官網主題內找尋喜歡的主題，並點選進去：
+&lt;img src=&#34;https://eva19950630.github.io/18_10_29_github-pages-hugo/003.png&#34; alt=&#34;進入主題github&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;複製該主題的git網址，並使用git clone下載至&lt;code&gt;themes&lt;/code&gt;資料夾中：
+&lt;img src=&#34;https://eva19950630.github.io/18_10_29_github-pages-hugo/004.png&#34; alt=&#34;複製git網址&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;cd至網站資料夾內的&lt;code&gt;themes&lt;/code&gt;資料夾中：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd themes
+git clone [該主題git網址]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;step5-編輯config-toml檔案&#34;&gt;Step5：編輯config.toml檔案&lt;/h3&gt;
+
+&lt;p&gt;config.toml檔案在根目錄下，使用sublime或其他文字編輯器進行修改，由於之後會將此Hugo個人網站部署至Github上，因此&lt;code&gt;baseURL&lt;/code&gt;需配置為Github pages的網址，而theme為更換剛剛Step4下載的主題資料夾名稱。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;baseURL = &amp;quot;https://[個人Github帳號].github.io/&amp;quot;   # [個人Github帳號]需改為Github帳號
+languageCode = &amp;quot;zh-tw&amp;quot;
+title = &amp;quot;[My New Hugo Site]&amp;quot;   # [My New Hugo Site]為自定網站名稱
+theme = &amp;quot;[Theme dir name]&amp;quot;   # [Theme dir name]為主題資料夾名稱
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;step6-建立新文章-post&#34;&gt;Step6：建立新文章(post)&lt;/h3&gt;
+
+&lt;p&gt;在根目錄下輸入以下指令建立新文章。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo new posts/[post name].md   # [post name]為自定文章檔案名稱
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;按下enter後，則可以在terminal看到以下建立成功畫面：
+&lt;img src=&#34;https://eva19950630.github.io/18_10_29_github-pages-hugo/005.png&#34; alt=&#34;成功建立新文章&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;若建立成功，則可以在目錄下的&lt;code&gt;/contents/posts&lt;/code&gt;資料夾中，看見剛剛新增的文章檔案(.md檔)，使用文字編輯器修改此md檔。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;---
+title: &amp;quot;[New Post]&amp;quot;   # [New Post]為自定文章標題
+date: 2018-10-29T11:06:37+08:00
+draft: false   # 原本為true，改為false
+---
+
+[此處可輸入文章內容]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;文章使用markdown語法編輯，未來建立文章皆使用Step6這個方式，&lt;code&gt;draft&lt;/code&gt;記得改為false。&lt;/p&gt;
+
+&lt;p&gt;若文章中有使用圖片，圖片檔案放入根目錄中的&lt;code&gt;/static&lt;/code&gt;資料夾內。&lt;/p&gt;
+
+&lt;h3 id=&#34;step7-本地端執行測試&#34;&gt;Step7：本地端執行測試&lt;/h3&gt;
+
+&lt;p&gt;以上步驟即可完成Hugo網站的大致雛形，若想看成品，可在本地端使用terminal先執行測試(在根目錄下)。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo serve -D
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;打開瀏覽器，輸入網址&lt;a href=&#34;http://localhost:1313/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;http://localhost:1313/&lt;/a&gt;，可看到如下畫面：
+&lt;img src=&#34;https://eva19950630.github.io/18_10_29_github-pages-hugo/006.png&#34; alt=&#34;Hugo網站創建完成&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;第二部分-部署至github上成為個人github-pages&#34;&gt;第二部分：部署至Github上成為個人Github pages&lt;/h2&gt;
+
+&lt;p&gt;Github提供靜態網站的server，使用者可將靜態網站上傳上去，作為Github pages，一隻帳號僅有一個主頁，這個部分將操作部署剛剛創建好的Hugo網站至Github上。&lt;/p&gt;
+
+&lt;h3 id=&#34;step1-在github上新增一個新repository&#34;&gt;Step1：在Github上新增一個新repository&lt;/h3&gt;
+
+&lt;p&gt;repository name取名為&lt;code&gt;[Github帳號].github.io&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&#34;step2-在hugo網站根目錄下建立-public資料夾&#34;&gt;Step2：在Hugo網站根目錄下建立/public資料夾&lt;/h3&gt;
+
+&lt;p&gt;使用terminal在根目錄下輸入以下指令，執行完後會在根目錄下產生一個&lt;code&gt;public&lt;/code&gt;資料夾。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;step3-在-public資料夾內初始化git並連結到github-pages&#34;&gt;Step3：在/public資料夾內初始化git並連結到Github pages&lt;/h3&gt;
+
+&lt;p&gt;先至Github將剛新增repo的git網址複製下來(如第一部分Step4第二張圖)。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd public
+
+# 初始化git
+git init
+git remote add origin [貼上剛複製好的repo git URL]
+git remote -v   # 檢查origin名稱是否有遠端連結到該git URL
+
+# 建立第一個commit
+git add .
+git commit -m &amp;quot;Initial commit&amp;quot;
+git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Hint&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;有時候在操作&lt;code&gt;git push&lt;/code&gt;指令時，系統常常會告訴你要設定好要push去哪個分支，產生類似以下的錯誤。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git push
+
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+	git push --set-upstream origin master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;若今天在push時加入&lt;code&gt;-u&lt;/code&gt;這個參數：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;-u&lt;/code&gt;這個參數為表示設定upstream(上游)，以上述例子來看，&lt;code&gt;-u&lt;/code&gt;設定下去後，就會把&lt;code&gt;origin/master&lt;/code&gt;設定為本地&lt;code&gt;master&lt;/code&gt;分支的upstream，下次要再執行&lt;code&gt;git push&lt;/code&gt;指令而不加任何參數時，預設值則會知道是要將master這個分支推往origin這個遠端節點。&lt;/p&gt;
+
+&lt;h3 id=&#34;step4-查看個人github-pages&#34;&gt;Step4：查看個人Github pages&lt;/h3&gt;
+
+&lt;p&gt;上個步驟push完成後，打開瀏覽器輸入網址https://[Github帳號].github.io/，就可以看到自己的Github pages了。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Hugo建立的網站要連結至Github pages，需在&lt;code&gt;public&lt;/code&gt;資料夾下進行push，往後若網站進行修改後，則需在根目錄下先執行&lt;code&gt;hugo&lt;/code&gt;指令，在cd至public資料夾中進行commit與push。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;另外，若想要將Hugo網站整個資料夾上傳到Github另一個repo，也是可以的，上傳過程中遇到資料夾重複上傳的warning可自動忽略。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://gohugo.io/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/@chs_wei/%E5%9C%A8-github-%E9%83%A8%E7%BD%B2-hugo-%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99-9c40682dfe40&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://medium.com/@chs_wei/%E5%9C%A8-github-%E9%83%A8%E7%BD%B2-hugo-%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99-9c40682dfe40&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gitbook.tw/chapters/github/using-github-pages.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://gitbook.tw/chapters/github/using-github-pages.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gitbook.tw/chapters/github/push-to-github.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://gitbook.tw/chapters/github/push-to-github.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Markdown筆記</title>
+      <link>https://eva19950630.github.io/2018/18_10_28_markdown-note/</link>
       <pubDate>Sun, 28 Oct 2018 20:27:16 +0800</pubDate>
       
-      <guid>https://eva19950630.github.io/2018/markdown-note/</guid>
+      <guid>https://eva19950630.github.io/2018/18_10_28_markdown-note/</guid>
       <description>
 
 &lt;h2 id=&#34;一般文字-text&#34;&gt;一般文字(Text)&lt;/h2&gt;

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Syuan Tech Blog</title>
-    <link>https://eva19950630.github.io/posts/</link>
-    <description>Recent content in Posts on Syuan Tech Blog</description>
+    <title>Hugo on Syuan Tech Blog</title>
+    <link>https://eva19950630.github.io/tags/hugo/</link>
+    <description>Recent content in Hugo on Syuan Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <lastBuildDate>Mon, 29 Oct 2018 09:50:03 +0800</lastBuildDate>
     
-	<atom:link href="https://eva19950630.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://eva19950630.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -25,26 +25,6 @@ Step1：使用terminal安裝Homebrew Homebrew為open source的軟體套件管理
 在官網主題內找尋喜歡的主題，並點選進去： 複製該主題的git網址，並使用git clone下載至themes資料夾中： cd至網站資料夾內的themes資料夾中：
 cd themes git clone [該主題git網址]  Step5：編輯config.toml檔案 config.toml檔案在根目錄下，使用sublime或其他文字編輯器進行修改，由於之後會將此Hugo個人網站部署至Github上，因此baseURL需配置為Github pages的網址，而theme為更換剛剛Step4下載的主題資料夾名稱。
 baseURL = &amp;quot;https://[個人Github帳號].github.io/&amp;quot; # [個人Github帳號]需改為Github帳號 languageCode = &amp;quot;zh-tw&amp;quot; title = &amp;quot;[My New Hugo Site]&amp;quot; # [My New Hugo Site]為自定網站名稱 theme = &amp;quot;[Theme dir name]&amp;quot; # [Theme dir name]為主題資料夾名稱  Step6：建立新文章(post) 在根目錄下輸入以下指令建立新文章。</description>
-    </item>
-    
-    <item>
-      <title>Markdown筆記</title>
-      <link>https://eva19950630.github.io/2018/18_10_28_markdown-note/</link>
-      <pubDate>Sun, 28 Oct 2018 20:27:16 +0800</pubDate>
-      
-      <guid>https://eva19950630.github.io/2018/18_10_28_markdown-note/</guid>
-      <description>一般文字(Text) test
-標題(Title) # test1.1 ## test1.2 ### test1.3 #### test1.4 ##### test1.5 ###### test1.6  Example
-test1.1 test1.2 test1.3 test1.4 test1.5 test1.6 引用文字(Blockquote) &amp;gt; test2  Example
- test2
- 粗體/斜體/刪除線 # 粗體 **test3.1** __test3.2__ # 斜體 *test4.1* _test4.2_ # 刪除線 ~~test5~~  Example
-test3.1
-test3.2
-test4.1
-test4.2
-test5
-無序列點 * test6.1 * test6.2 * test6.3 - test6.4 - test6.5 - test6.6  Example
- test6.1 test6.2 test6.3</description>
     </item>
     
   </channel>
