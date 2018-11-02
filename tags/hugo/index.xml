@@ -22,7 +22,7 @@
 Step1：使用terminal安裝Homebrew Homebrew為open source的軟體套件管理工具，可簡化在Mac上安裝或卸載套件的過程。
 /usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;  Step2：使用terminal安裝Hugo brew install hugo  Step3：使用Hugo創建新網站 到想要的目錄下，創建Hugo新網站。
 # [website-name]為自定網站資料夾名稱 hugo new site [website-name] cd [website-name]  創建完成後，可在terminal看到以下畫面： cd至該網站資料夾內，可看到內部資料夾結構如下： Step4：更換主題(Theme) 官網提供許多網站主題，若找到合適的即可使用git clone下載該主題。
-在官網主題內找尋喜歡的主題，並點選進去： 複製該主題的git網址，並使用git clone下載至themes資料夾中： cd至網站資料夾內的themes資料夾中：
+在官網主題內找尋喜歡的主題，並點選進去： 複製該主題的git網址，並使用git clone下載至themes資料夾中： cd至剛Step3創建好Hugo網站根目錄下的themes資料夾中(預設目前路徑在Hugo網站根目錄下)：
 cd themes git clone [該主題git網址]  Step5：編輯config.toml檔案 config.toml檔案在根目錄下，使用sublime或其他文字編輯器進行修改，由於之後會將此Hugo個人網站部署至Github上，因此baseURL需配置為Github pages的網址，而theme為更換剛剛Step4下載的主題資料夾名稱。
 baseURL = &amp;quot;https://[個人Github帳號].github.io/&amp;quot; # [個人Github帳號]需改為Github帳號 languageCode = &amp;quot;zh-tw&amp;quot; title = &amp;quot;[My New Hugo Site]&amp;quot; # [My New Hugo Site]為自定網站名稱 theme = &amp;quot;[Theme dir name]&amp;quot; # [Theme dir name]為主題資料夾名稱  Step6：建立新文章(post) 在根目錄下輸入以下指令建立新文章。</description>
     </item>

@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
+      <loc>https://eva19950630.github.io/2018/18_11_02_java-throw-throws/</loc>
+      
+      <lastmod>2018-11-02T21:31:53+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
       <loc>https://eva19950630.github.io/2018/18_10_29_github-pages-hugo/</loc>
       
       <lastmod>2018-10-29T09:50:03+08:00</lastmod>
@@ -33,7 +43,21 @@
     </url>
   
     <url>
+      <loc>https://eva19950630.github.io/categories/basic-programming-language/</loc>
+      
+      <lastmod>2018-11-02T21:31:53+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://eva19950630.github.io/categories/</loc>
+      
+      <lastmod>2018-11-02T21:31:53+08:00</lastmod>
       
       
       
@@ -67,6 +91,18 @@
     </url>
   
     <url>
+      <loc>https://eva19950630.github.io/tags/java/</loc>
+      
+      <lastmod>2018-11-02T21:31:53+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://eva19950630.github.io/tags/markdown/</loc>
       
       <lastmod>2018-10-28T20:27:16+08:00</lastmod>
@@ -81,7 +117,7 @@
     <url>
       <loc>https://eva19950630.github.io/posts/</loc>
       
-      <lastmod>2018-10-29T09:50:03+08:00</lastmod>
+      <lastmod>2018-11-02T21:31:53+08:00</lastmod>
       
       
       
@@ -93,7 +129,7 @@
     <url>
       <loc>https://eva19950630.github.io/</loc>
       
-      <lastmod>2018-10-29T09:50:03+08:00</lastmod>
+      <lastmod>2018-11-02T21:31:53+08:00</lastmod>
       
       
       

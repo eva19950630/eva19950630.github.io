@@ -6,10 +6,30 @@
     <description>Recent content in Posts on Syuan Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Mon, 29 Oct 2018 09:50:03 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 02 Nov 2018 21:31:53 +0800</lastBuildDate>
     
 	<atom:link href="https://eva19950630.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>［Java］異常處理機制：throw與throws</title>
+      <link>https://eva19950630.github.io/2018/18_11_02_java-throw-throws/</link>
+      <pubDate>Fri, 02 Nov 2018 21:31:53 +0800</pubDate>
+      
+      <guid>https://eva19950630.github.io/2018/18_11_02_java-throw-throws/</guid>
+      <description>throw 用於丟出一個異常物件。
+語法：寫於程式語句中(method內)。
+throw [例外物件變數];
+舉例：throw new Exception(&amp;ldquo;這是例外錯誤！&amp;rdquo;);
+throws 用於宣告此method會丟出哪些Exception，表示此method可能會發生哪些例外，加s意指可以同時使用多個Exception子類別修飾方法。
+語法：寫於宣告method的後方。
+舉例：public void function() throws Exception {&amp;hellip;}
+上述兩者差異  寫的地方不同：throw寫在語句中；throws寫在函數頭。 執行可能性：若編譯過程中執行throw則表示一定發生異常；而throws只是宣告該method可能發生異常，但不一定會發生這些異常。  配合使用try catch Coding時，盡可能在可能出現異常的地方，使用try{...}catch{...}來捕捉(發現)異常並進行處理。
+發現異常後，一定要在catch{...}內進行異常發生時的處理。
+如果有在method內寫throw語句丟出異常，盡量在函數頭加上throws進行聲明，若真的發生異常，則會將異常交給上層呼叫此異常方法進行處理(通常在catch{...}內)。
+Example
+public class test { public static void main (String[] args) { try { score(101); } catch (Exception e) { System.out.println(e.getMessage()); } } public static void score(int num) throws Exception { if (num &amp;gt; 100) throw new Exception(&amp;quot;Over&amp;quot;); } }  Tips</description>
+    </item>
     
     <item>
       <title>使用Github Pages架設Hugo靜態blog</title>
@@ -22,7 +42,7 @@
 Step1：使用terminal安裝Homebrew Homebrew為open source的軟體套件管理工具，可簡化在Mac上安裝或卸載套件的過程。
 /usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;  Step2：使用terminal安裝Hugo brew install hugo  Step3：使用Hugo創建新網站 到想要的目錄下，創建Hugo新網站。
 # [website-name]為自定網站資料夾名稱 hugo new site [website-name] cd [website-name]  創建完成後，可在terminal看到以下畫面： cd至該網站資料夾內，可看到內部資料夾結構如下： Step4：更換主題(Theme) 官網提供許多網站主題，若找到合適的即可使用git clone下載該主題。
-在官網主題內找尋喜歡的主題，並點選進去： 複製該主題的git網址，並使用git clone下載至themes資料夾中： cd至網站資料夾內的themes資料夾中：
+在官網主題內找尋喜歡的主題，並點選進去： 複製該主題的git網址，並使用git clone下載至themes資料夾中： cd至剛Step3創建好Hugo網站根目錄下的themes資料夾中(預設目前路徑在Hugo網站根目錄下)：
 cd themes git clone [該主題git網址]  Step5：編輯config.toml檔案 config.toml檔案在根目錄下，使用sublime或其他文字編輯器進行修改，由於之後會將此Hugo個人網站部署至Github上，因此baseURL需配置為Github pages的網址，而theme為更換剛剛Step4下載的主題資料夾名稱。
 baseURL = &amp;quot;https://[個人Github帳號].github.io/&amp;quot; # [個人Github帳號]需改為Github帳號 languageCode = &amp;quot;zh-tw&amp;quot; title = &amp;quot;[My New Hugo Site]&amp;quot; # [My New Hugo Site]為自定網站名稱 theme = &amp;quot;[Theme dir name]&amp;quot; # [Theme dir name]為主題資料夾名稱  Step6：建立新文章(post) 在根目錄下輸入以下指令建立新文章。</description>
     </item>

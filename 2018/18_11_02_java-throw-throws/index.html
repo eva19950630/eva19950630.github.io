@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Syuan Shih">
+  
+  
+  
+  <link rel="prev" href="https://eva19950630.github.io/2018/18_10_29_github-pages-hugo/" />
+  
+  <link rel="canonical" href="https://eva19950630.github.io/2018/18_11_02_java-throw-throws/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           ［Java］異常處理機制：throw與throws | Syuan Tech Blog
+       
+  </title>
+  <meta name="title" content="［Java］異常處理機制：throw與throws | Syuan Tech Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://eva19950630.github.io/"
+    },
+    "articleSection" : "posts",
+    "name" : "［Java］異常處理機制：throw與throws",
+    "headline" : "［Java］異常處理機制：throw與throws",
+    "description" : "throw 用於丟出一個異常物件。
+語法：寫於程式語句中(method內)。
+throw [例外物件變數];
+舉例：throw new Exception(&ldquo;這是例外錯誤！&rdquo;);
+throws 用於宣告此method會丟出哪些Exception，表示此method可能會發生哪些例外，加s意指可以同時使用多個Exception子類別修飾方法。
+語法：寫於宣告method的後方。
+舉例：public void function() throws Exception {&hellip;}
+上述兩者差異  寫的地方不同：throw寫在語句中；throws寫在函數頭。 執行可能性：若編譯過程中執行throw則表示一定發生異常；而throws只是宣告該method可能發生異常，但不一定會發生這些異常。  配合使用try catch Coding時，盡可能在可能出現異常的地方，使用try{...}catch{...}來捕捉(發現)異常並進行處理。
+發現異常後，一定要在catch{...}內進行異常發生時的處理。
+如果有在method內寫throw語句丟出異常，盡量在函數頭加上throws進行聲明，若真的發生異常，則會將異常交給上層呼叫此異常方法進行處理(通常在catch{...}內)。
+Example
+public class test { public static void main (String[] args) { try { score(101); } catch (Exception e) { System.out.println(e.getMessage()); } } public static void score(int num) throws Exception { if (num &gt; 100) throw new Exception(&quot;Over&quot;); } }  Tips",
+    "inLanguage" : "zh-tw",
+    "author" : "Syuan Shih",
+    "creator" : "Syuan Shih",
+    "publisher": "Syuan Shih",
+    "accountablePerson" : "Syuan Shih",
+    "copyrightHolder" : "Syuan Shih",
+    "copyrightYear" : "2018",
+    "datePublished": "2018-11-02 21:31:53 &#43;0800 CST",
+    "dateModified" : "2018-11-02 21:31:53 &#43;0800 CST",
+    "url" : "https://eva19950630.github.io/2018/18_11_02_java-throw-throws/",
+    "wordCount" : "72",
+    "keywords" : [ "Java", "Syuan Tech Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://eva19950630.github.io/">Syuan Tech Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://eva19950630.github.io/">Syuan Tech Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">［Java］異常處理機制：throw與throws</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://eva19950630.github.io/" rel="author">Syuan Shih</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2018-11-02 itemprop="datePublished">November 2, 2018</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://eva19950630.github.io/categories/basic-programming-language/"> Basic Programming Language </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="throw">throw</h2>
+
+<p>用於丟出一個異常物件。</p>
+
+<p>語法：寫於程式語句中(method內)。</p>
+
+<p>throw [例外物件變數];</p>
+
+<p>舉例：throw new Exception(&ldquo;這是例外錯誤！&rdquo;);</p>
+
+<h2 id="throws">throws</h2>
+
+<p>用於宣告此method會丟出哪些Exception，表示此method可能會發生哪些例外，加s意指可以同時使用多個Exception子類別修飾方法。</p>
+
+<p>語法：寫於宣告method的後方。</p>
+
+<p>舉例：public void function() throws Exception {&hellip;}</p>
+
+<h3 id="上述兩者差異">上述兩者差異</h3>
+
+<ul>
+<li>寫的地方不同：<code>throw</code>寫在語句中；<code>throws</code>寫在函數頭。</li>
+<li>執行可能性：若編譯過程中執行<code>throw</code>則表示一定發生異常；而<code>throws</code>只是宣告該method可能發生異常，但不一定會發生這些異常。</li>
+</ul>
+
+<h2 id="配合使用try-catch">配合使用try catch</h2>
+
+<p>Coding時，盡可能在可能出現異常的地方，使用<code>try{...}catch{...}</code>來捕捉(發現)異常並進行處理。</p>
+
+<p>發現異常後，一定要在<code>catch{...}</code>內進行異常發生時的處理。</p>
+
+<p>如果有在method內寫throw語句丟出異常，盡量在函數頭加上throws進行聲明，若真的發生異常，則會將異常交給上層呼叫此異常方法進行處理(通常在<code>catch{...}</code>內)。</p>
+
+<p><code>Example</code></p>
+
+<pre><code class="language-java">public class test {
+	public static void main (String[] args) {
+		try {
+			score(101);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	public static void score(int num) throws Exception {
+		if (num &gt; 100)
+			throw new Exception(&quot;Over&quot;);
+	}
+}
+</code></pre>
+
+<p><code>Tips</code></p>
+
+<p>如果有使用到繼承時，若父類別某個method有throws某些例外，子類別欲重新定義該方法，可以throws父類別該方法宣告的某些例外，但不可throws父類別方法中「未宣告」的例外。</p>
+
+<h3 id="reference">Reference</h3>
+
+<hr />
+
+<ul>
+<li><a href="http://jhengjyun.blogspot.com/2010/06/java-throwthrows.html" rel="nofollow noreferrer" target="_blank">http://jhengjyun.blogspot.com/2010/06/java-throwthrows.html</a></li>
+<li><a href="https://hk.saowen.com/a/3759f3e723abe683f4b20f65bec494c26b097467c095b77de2b0b1778eee8b5e" rel="nofollow noreferrer" target="_blank">https://hk.saowen.com/a/3759f3e723abe683f4b20f65bec494c26b097467c095b77de2b0b1778eee8b5e</a></li>
+<li><a href="https://www.javaworld.com.tw/jute/post/view?bid=29&amp;id=282977" rel="nofollow noreferrer" target="_blank">https://www.javaworld.com.tw/jute/post/view?bid=29&amp;id=282977</a></li>
+<li><a href="https://openhome.cc/Gossip/Java/Throw.html" rel="nofollow noreferrer" target="_blank">https://openhome.cc/Gossip/Java/Throw.html</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Syuan Shih </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://eva19950630.github.io/2018/18_11_02_java-throw-throws/>https://eva19950630.github.io/2018/18_11_02_java-throw-throws/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://eva19950630.github.io/tags/java/">
+                    #Java</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://eva19950630.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://eva19950630.github.io/2018/18_10_29_github-pages-hugo/" class="prev" rel="prev" title="使用Github Pages架設Hugo靜態blog"><i class="iconfont icon-left"></i>&nbsp;使用Github Pages架設Hugo靜態blog</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2018 - 2018</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://eva19950630.github.io/">Syuan Shih</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

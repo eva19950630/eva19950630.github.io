@@ -6,8 +6,84 @@
     <description>Recent content in Syuan Tech Blog on Syuan Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Mon, 29 Oct 2018 09:50:03 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 02 Nov 2018 21:31:53 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>［Java］異常處理機制：throw與throws</title>
+      <link>https://eva19950630.github.io/2018/18_11_02_java-throw-throws/</link>
+      <pubDate>Fri, 02 Nov 2018 21:31:53 +0800</pubDate>
+      
+      <guid>https://eva19950630.github.io/2018/18_11_02_java-throw-throws/</guid>
+      <description>
+
+&lt;h2 id=&#34;throw&#34;&gt;throw&lt;/h2&gt;
+
+&lt;p&gt;用於丟出一個異常物件。&lt;/p&gt;
+
+&lt;p&gt;語法：寫於程式語句中(method內)。&lt;/p&gt;
+
+&lt;p&gt;throw [例外物件變數];&lt;/p&gt;
+
+&lt;p&gt;舉例：throw new Exception(&amp;ldquo;這是例外錯誤！&amp;rdquo;);&lt;/p&gt;
+
+&lt;h2 id=&#34;throws&#34;&gt;throws&lt;/h2&gt;
+
+&lt;p&gt;用於宣告此method會丟出哪些Exception，表示此method可能會發生哪些例外，加s意指可以同時使用多個Exception子類別修飾方法。&lt;/p&gt;
+
+&lt;p&gt;語法：寫於宣告method的後方。&lt;/p&gt;
+
+&lt;p&gt;舉例：public void function() throws Exception {&amp;hellip;}&lt;/p&gt;
+
+&lt;h3 id=&#34;上述兩者差異&#34;&gt;上述兩者差異&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;寫的地方不同：&lt;code&gt;throw&lt;/code&gt;寫在語句中；&lt;code&gt;throws&lt;/code&gt;寫在函數頭。&lt;/li&gt;
+&lt;li&gt;執行可能性：若編譯過程中執行&lt;code&gt;throw&lt;/code&gt;則表示一定發生異常；而&lt;code&gt;throws&lt;/code&gt;只是宣告該method可能發生異常，但不一定會發生這些異常。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;配合使用try-catch&#34;&gt;配合使用try catch&lt;/h2&gt;
+
+&lt;p&gt;Coding時，盡可能在可能出現異常的地方，使用&lt;code&gt;try{...}catch{...}&lt;/code&gt;來捕捉(發現)異常並進行處理。&lt;/p&gt;
+
+&lt;p&gt;發現異常後，一定要在&lt;code&gt;catch{...}&lt;/code&gt;內進行異常發生時的處理。&lt;/p&gt;
+
+&lt;p&gt;如果有在method內寫throw語句丟出異常，盡量在函數頭加上throws進行聲明，若真的發生異常，則會將異常交給上層呼叫此異常方法進行處理(通常在&lt;code&gt;catch{...}&lt;/code&gt;內)。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class test {
+	public static void main (String[] args) {
+		try {
+			score(101);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	public static void score(int num) throws Exception {
+		if (num &amp;gt; 100)
+			throw new Exception(&amp;quot;Over&amp;quot;);
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Tips&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;如果有使用到繼承時，若父類別某個method有throws某些例外，子類別欲重新定義該方法，可以throws父類別該方法宣告的某些例外，但不可throws父類別方法中「未宣告」的例外。&lt;/p&gt;
+
+&lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://jhengjyun.blogspot.com/2010/06/java-throwthrows.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;http://jhengjyun.blogspot.com/2010/06/java-throwthrows.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hk.saowen.com/a/3759f3e723abe683f4b20f65bec494c26b097467c095b77de2b0b1778eee8b5e&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://hk.saowen.com/a/3759f3e723abe683f4b20f65bec494c26b097467c095b77de2b0b1778eee8b5e&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.javaworld.com.tw/jute/post/view?bid=29&amp;amp;id=282977&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://www.javaworld.com.tw/jute/post/view?bid=29&amp;amp;id=282977&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://openhome.cc/Gossip/Java/Throw.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://openhome.cc/Gossip/Java/Throw.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>使用Github Pages架設Hugo靜態blog</title>
@@ -67,7 +143,7 @@ cd [website-name]
 &lt;p&gt;複製該主題的git網址，並使用git clone下載至&lt;code&gt;themes&lt;/code&gt;資料夾中：
 &lt;img src=&#34;https://eva19950630.github.io/18_10_29_github-pages-hugo/004.png&#34; alt=&#34;複製git網址&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;cd至網站資料夾內的&lt;code&gt;themes&lt;/code&gt;資料夾中：&lt;/p&gt;
+&lt;p&gt;cd至剛Step3創建好Hugo網站根目錄下的&lt;code&gt;themes&lt;/code&gt;資料夾中(預設目前路徑在Hugo網站根目錄下)：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd themes
 git clone [該主題git網址]
