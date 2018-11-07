@@ -18,11 +18,11 @@
       
       <guid>https://eva19950630.github.io/2018/18_11_02_java-throw-throws/</guid>
       <description>throw 用於丟出一個異常物件。
-語法：寫於程式語句中(method內)。
+語法：寫於程式語句中。
 throw [例外物件變數];
 舉例：throw new Exception(&amp;ldquo;這是例外錯誤！&amp;rdquo;);
 throws 用於宣告此method會丟出哪些Exception，表示此method可能會發生哪些例外，加s意指可以同時使用多個Exception子類別修飾方法。
-語法：寫於宣告method的後方。
+語法：寫於宣告method的地方。
 舉例：public void function() throws Exception {&amp;hellip;}
 上述兩者差異  寫的地方不同：throw寫在語句中；throws寫在函數頭。 執行可能性：若編譯過程中執行throw則表示一定發生異常；而throws只是宣告該method可能發生異常，但不一定會發生這些異常。  配合使用try catch Coding時，盡可能在可能出現異常的地方，使用try{...}catch{...}來捕捉(發現)異常並進行處理。
 發現異常後，一定要在catch{...}內進行異常發生時的處理。

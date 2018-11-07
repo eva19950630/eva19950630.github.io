@@ -6,8 +6,297 @@
     <description>Recent content in Syuan Tech Blog on Syuan Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Fri, 02 Nov 2018 21:31:53 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 04 Nov 2018 21:20:00 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>［CSS3］Flexbox</title>
+      <link>https://eva19950630.github.io/2018/18_11_04_css-flexbox/</link>
+      <pubDate>Sun, 04 Nov 2018 21:20:00 +0800</pubDate>
+      
+      <guid>https://eva19950630.github.io/2018/18_11_04_css-flexbox/</guid>
+      <description>
+
+&lt;p&gt;網頁前端設計時，時常遇到排版區塊的問題，目前有許多排版框架(如：Bootstrap)可以使用並快速排版，而其實CSS3提供了一個很好的排版模型：&lt;code&gt;flexbox&lt;/code&gt;，這讓我們在排版介面時更加快速與彈性，而且能輕鬆進行響應式設計(RWD)，在各大瀏覽器也幾乎都支援，因此&lt;code&gt;flexbox&lt;/code&gt;是近年來愈來愈多人在使用的排版模型。&lt;/p&gt;
+
+&lt;h2 id=&#34;layout-box-model&#34;&gt;Layout Box Model&lt;/h2&gt;
+
+&lt;p&gt;首先先了解flexbox的佈局模型，才能較快上手flexbox，根據&lt;a href=&#34;https://www.w3.org/TR/css-flexbox-1/#box-model&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;W3C&lt;/a&gt;的文章，flexbox的佈局模型如下圖：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://eva19950630.github.io/18_11_04_css-flexbox/001.png&#34; alt=&#34;flexbox佈局模型&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;從上圖可以觀察到：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;最外層有一個&lt;code&gt;flex container&lt;/code&gt;包覆著內層兩個&lt;code&gt;flex item&lt;/code&gt;的元件區塊：
+
+&lt;ul&gt;
+&lt;li&gt;意指當要使用flexbox時，需在所有要排版的元件區塊最外層包覆著一個容器，並給定flex效果，讓這個容器內所有元件區塊皆有flex效果。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;最外層容器具有水平軸(main axis)、垂直軸(cross axis)、水平的起點與終點(main start、main end)、垂直的起點與終點(cross start、cross end)、水平尺寸(main size)與垂直尺寸(cross size)。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;因此透過上圖，flexbox的模型概念可以了解成：&lt;/p&gt;
+
+&lt;p&gt;在一個有flex效果的父元件容器(container)當中，裝載著各個區塊子元件(items)，而每個item擺放的位置可透過設定main與cross去劃分位置，將各個區塊擺到相對應的位置上。&lt;/p&gt;
+
+&lt;p&gt;以下將分別介紹父元件容器(container)與子元件區塊(items)可應用的屬性。&lt;/p&gt;
+
+&lt;h2 id=&#34;父元件容器-container&#34;&gt;父元件容器(container)&lt;/h2&gt;
+
+&lt;h3 id=&#34;display&#34;&gt;display&lt;/h3&gt;
+
+&lt;p&gt;在最外層容器一定要設定有flex效果，其內部子元件才會跟著有flex效果。使用display屬性設定，有兩種方式：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;display: flex&lt;/code&gt;：類似display: block，後方元素會強迫換行，但子元件有更多彈性的設定。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;display: inline-flex&lt;/code&gt;：類似display: inline-block，意思即一個display: flex外包覆一個display: inline的屬性，後方元素不會換行。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.flex-container {
+	display: flex | inline-flex;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;flex-direction&#34;&gt;flex-direction&lt;/h3&gt;
+
+&lt;p&gt;設定內部子元件的「排列方向」(主軸方向)。&lt;/p&gt;
+
+&lt;p&gt;預設值為&lt;strong&gt;先由左到右，再從上到下&lt;/strong&gt;，總共有四種排列方式可以設定：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;flex-direction: row&lt;/code&gt;：預設值，先由左到右，再從上到下。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;flex-direction: row-reverse&lt;/code&gt;：與row相反。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;flex-direction: column&lt;/code&gt;：先從上到下，再由左到右。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;flex-direction: column-reverse&lt;/code&gt;：與column相反。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://eva19950630.github.io/18_11_04_css-flexbox/002.png&#34; alt=&#34;flex-direction排列方式示意圖&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.flex-container {
+	display: flex;
+	flex-direction: row | row-reverse | column | column-reverse;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;flex-wrap&#34;&gt;flex-wrap&lt;/h3&gt;
+
+&lt;p&gt;設定內部子元件在父元件有限寬度內「是否換行」。&lt;/p&gt;
+
+&lt;p&gt;因為當container設定為flex屬性後，內部子元件則預設以&lt;strong&gt;不換行&lt;/strong&gt;的方式進行排列，彈性撐滿整個容器。而flex-wrap有三種方式可以設定：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;flex-wrap: nowrap&lt;/code&gt;：預設值，單行(不換行)。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;flex-wrap: wrap&lt;/code&gt;：多行。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;flex-wrap: wrap-reverse&lt;/code&gt;：多行，但內容元件反轉。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://eva19950630.github.io/18_11_04_css-flexbox/003.png&#34; alt=&#34;flex-wrap設定方式示意圖&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.flex-container {
+	display: flex;
+	flex-wrap: nowrap | wrap | wrap-reverse;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;flex-flow&#34;&gt;flex-flow&lt;/h3&gt;
+
+&lt;p&gt;為上述&lt;code&gt;flex-direction&lt;/code&gt;與&lt;code&gt;flex-wrap&lt;/code&gt;的&lt;strong&gt;縮寫&lt;/strong&gt;，可同時設定這兩者的屬性。&lt;/p&gt;
+
+&lt;p&gt;語法：flex-flow: [flex-direction屬性] [flex-wrap屬性];&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;[flex-direction屬性]、[flex-wrap屬性]分別給定對應的屬性值。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.flex-container {
+	flex-flow: column wrap;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;justify-content&#34;&gt;justify-content&lt;/h3&gt;
+
+&lt;p&gt;設定內部子元件的「水平對齊」位置。&lt;/p&gt;
+
+&lt;p&gt;最上面提到flexbox的佈局模式，有水平的起點與終點(main start、main end)兩個端點，因此可透過justify-content設定內部元件的水平對齊位置，總共有五種對齊方式：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;justify-content: flex-start&lt;/code&gt;：預設值，對齊最左邊的main start位置。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;justify-content: flex-end&lt;/code&gt;：對齊最右邊的main end位置。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;justify-content: center&lt;/code&gt;：水平置中。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;justify-content: space-between&lt;/code&gt;：平均分配內容元素，最左邊與最右邊元素會分別貼齊main start與main end位置。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;justify-content: space-around&lt;/code&gt;：平均分配內容元素，各元素的間距也平均分配。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://eva19950630.github.io/18_11_04_css-flexbox/004.png&#34; alt=&#34;justify-content設定示意圖&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.flex-container {
+	display: flex;
+	justify-content: flex-start | flex-end | center | space-between | space-around;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;align-items&#34;&gt;align-items&lt;/h3&gt;
+
+&lt;p&gt;設定內部子元件的「垂直對齊」位置(元件排列為「單行」適用)。&lt;/p&gt;
+
+&lt;p&gt;與上述&lt;code&gt;justify-content&lt;/code&gt;相反，一樣是根據佈局模式垂直起點與終點(cross start、cross end)來對齊相對應位置，總共有五種對齊方式：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;align-items: flex-start&lt;/code&gt;：對齊最上面的cross start位置。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;align-items: flex-end&lt;/code&gt;：對齊最下面的cross end位置。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;align-items: center&lt;/code&gt;：垂直置中。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;align-items: stretch&lt;/code&gt;：預設值，所有內容元素整個撐開在容器的有限高度內。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;align-items: baseline&lt;/code&gt;：以所有內容元素的基線(baseline)作為對齊標準。下圖每個元件內「文字大小」不同，因此以文字的底部作為基線。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://eva19950630.github.io/18_11_04_css-flexbox/005.png&#34; alt=&#34;align-items設定示意圖&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.flex-container {
+	display: flex;
+	align-items: flex-start | flex-end | center | stretch | baseline;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;align-content&#34;&gt;align-content&lt;/h3&gt;
+
+&lt;p&gt;設定內部子元件的「垂直對齊」位置(元件排列為「多行」適用)。&lt;/p&gt;
+
+&lt;p&gt;與上述&lt;code&gt;align-items&lt;/code&gt;類似，只是為設定多行元件的垂直對齊位置，總共有六種對齊方式：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;align-content: flex-start&lt;/code&gt;：對齊最上面的cross start位置。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;align-content: flex-end&lt;/code&gt;：對齊最下面的cross end位置。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;align-content: center&lt;/code&gt;：垂直置中。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;align-content: space-between&lt;/code&gt;：第一行元素對齊最上面cross start位置，最後一行元素對齊最下面cross end位置。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;align-content: space-around&lt;/code&gt;：每行平均分配間距。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;align-content: stretch&lt;/code&gt;：預設值，所有內容元素整個撐開在容器的有限高度內。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://eva19950630.github.io/18_11_04_css-flexbox/006.png&#34; alt=&#34;align-content設定示意圖&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.flex-container {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;子元件區塊-items&#34;&gt;子元件區塊(items)&lt;/h2&gt;
+
+&lt;h3 id=&#34;order&#34;&gt;order&lt;/h3&gt;
+
+&lt;p&gt;設定各個子元件的「排列順序」。&lt;/p&gt;
+
+&lt;p&gt;與&lt;code&gt;flex-wrap&lt;/code&gt;不同的是，&lt;code&gt;order&lt;/code&gt;可&lt;strong&gt;個別&lt;/strong&gt;定義子元件的順序。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://eva19950630.github.io/18_11_04_css-flexbox/007.png&#34; alt=&#34;order設定示意圖&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div class=&amp;quot;flex-container&amp;quot; style=&amp;quot;display: flex&amp;quot;&amp;gt;
+  &amp;lt;div style=&amp;quot;order: 5&amp;quot;&amp;gt;1&amp;lt;/div&amp;gt;
+  &amp;lt;div style=&amp;quot;order: 3&amp;quot;&amp;gt;2&amp;lt;/div&amp;gt;
+  &amp;lt;div style=&amp;quot;order: 4&amp;quot;&amp;gt;3&amp;lt;/div&amp;gt;
+  &amp;lt;div style=&amp;quot;order: 2&amp;quot;&amp;gt;4&amp;lt;/div&amp;gt;
+  &amp;lt;div style=&amp;quot;order: 1&amp;quot;&amp;gt;5&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;flex-grow&#34;&gt;flex-grow&lt;/h3&gt;
+
+&lt;p&gt;設定子元件是否具有「伸展性」，配值為一個&lt;strong&gt;數值&lt;/strong&gt;，預設值為「0」，表示不會進行任何伸展變化，設定「1」以上的數值則會在容器有限空間內相對應比例分配伸展長度，但不可設定為負值。&lt;/p&gt;
+
+&lt;p&gt;適用於子元件沒有設定長度時。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://eva19950630.github.io/18_11_04_css-flexbox/008.png&#34; alt=&#34;flex-grow設定示意圖&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div class=&amp;quot;flex-container&amp;quot; style=&amp;quot;display: flex; width: 500px;&amp;quot;&amp;gt;
+  &amp;lt;div style=&amp;quot;flex-grow: 0&amp;quot;&amp;gt;1&amp;lt;/div&amp;gt;
+  &amp;lt;div style=&amp;quot;flex-grow: 1&amp;quot;&amp;gt;2&amp;lt;/div&amp;gt;
+  &amp;lt;div style=&amp;quot;flex-grow: 5&amp;quot;&amp;gt;3&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;flex-shrink&#34;&gt;flex-shrink&lt;/h3&gt;
+
+&lt;p&gt;設定子元件是否具有「壓縮性」，配值為一個&lt;strong&gt;數值&lt;/strong&gt;，預設值為「1」，設定「0」則不會進行任何壓縮變化，設定「1」以上的數值則會在容器有限空間內相對應比例分配長度，但不可設定為負值。&lt;/p&gt;
+
+&lt;p&gt;適用於子元件有設定長度時。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://eva19950630.github.io/18_11_04_css-flexbox/009.png&#34; alt=&#34;flex-shrink設定示意圖&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div class=&amp;quot;flex-container&amp;quot; style=&amp;quot;display: flex; width: 500px;&amp;quot;&amp;gt;
+  &amp;lt;div style=&amp;quot;flex-shrink: 1; width: 200px;&amp;quot;&amp;gt;1&amp;lt;/div&amp;gt;
+  &amp;lt;div style=&amp;quot;flex-shrink: 1; width: 200px;&amp;quot;&amp;gt;2&amp;lt;/div&amp;gt;
+  &amp;lt;div style=&amp;quot;flex-shrink: 0; width: 200px;&amp;quot;&amp;gt;3&amp;lt;/div&amp;gt;
+  &amp;lt;div style=&amp;quot;flex-shrink: 1; width: 200px;&amp;quot;&amp;gt;4&amp;lt;/div&amp;gt;
+  &amp;lt;div style=&amp;quot;flex-shrink: 1; width: 200px;&amp;quot;&amp;gt;5&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;flex-basis&#34;&gt;flex-basis&lt;/h3&gt;
+
+&lt;p&gt;設定子元件的「基本大小」，可使用不同的單位值(例如：px)，預設值為「0」，若沒有設定此屬性則會直接採用&lt;code&gt;flex-grow&lt;/code&gt;屬性，也可以設定為auto，表示以子元素本身的基本大小作為基準。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://eva19950630.github.io/18_11_04_css-flexbox/010.png&#34; alt=&#34;flex-shrink設定示意圖&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div class=&amp;quot;flex-container&amp;quot; style=&amp;quot;display: flex; width: 500px;&amp;quot;&amp;gt;
+  &amp;lt;div style=&amp;quot;flex-basis: 0;&amp;quot;&amp;gt;1&amp;lt;/div&amp;gt;
+  &amp;lt;div style=&amp;quot;flex-basis: 0;&amp;quot;&amp;gt;2&amp;lt;/div&amp;gt;
+  &amp;lt;div style=&amp;quot;flex-basis: 300px;&amp;quot;&amp;gt;3&amp;lt;/div&amp;gt;
+  &amp;lt;div style=&amp;quot;flex-basis: 0;&amp;quot;&amp;gt;4&amp;lt;/div&amp;gt;
+  &amp;lt;div style=&amp;quot;flex-basis: 100px;&amp;quot;&amp;gt;5&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;flex&#34;&gt;flex&lt;/h3&gt;
+
+&lt;p&gt;為上述三者&lt;code&gt;flex-grow&lt;/code&gt;、&lt;code&gt;flex-shrink&lt;/code&gt;、&lt;code&gt;flex-basis&lt;/code&gt;的&lt;strong&gt;縮寫&lt;/strong&gt;，可同時設定這三者的屬性。&lt;/p&gt;
+
+&lt;p&gt;語法：flex: [flex-grow屬性] [flex-shrink屬性] [flex-basis屬性];&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;[flex-grow屬性]、[flex-shrink屬性]、[flex-basis]分別給定對應的屬性值。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;通常這三個屬性都是適用在製作不同版面大小的元件時，可以透過伸展與壓縮來達到元件不會跑掉的目的，因此如果下方例子第三個區塊將flex-shrink設定為「0」，在壓縮畫面大小的時候，其元件大小依舊為原本設定的大小，不會更動。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://eva19950630.github.io/18_11_04_css-flexbox/011.png&#34; alt=&#34;flex設定示意圖&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div class=&amp;quot;flex-container&amp;quot; style=&amp;quot;display: flex; width: 500px;&amp;quot;&amp;gt;
+  &amp;lt;div style=&amp;quot;flex: 2 1 0&amp;quot;&amp;gt;1&amp;lt;/div&amp;gt;
+  &amp;lt;div style=&amp;quot;flex: 1 1 0&amp;quot;&amp;gt;2&amp;lt;/div&amp;gt;
+  &amp;lt;div style=&amp;quot;flex: 0 0 300px&amp;quot;&amp;gt;3&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;align-self&#34;&gt;align-self&lt;/h3&gt;
+
+&lt;p&gt;設定與&lt;code&gt;align-items&lt;/code&gt;相似，其設定種類也一樣(flex-start、flex-end、center、stretch、baseline)，但不同的是，&lt;code&gt;align-self&lt;/code&gt;可針對某一元件做設定，因此若一開始父元件有設定&lt;code&gt;align-items&lt;/code&gt;，當子元件設定&lt;code&gt;align-self&lt;/code&gt;，則會直接覆寫原本父元件所設定的屬性。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://eva19950630.github.io/18_11_04_css-flexbox/012.png&#34; alt=&#34;align-self設定示意圖&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div class=&amp;quot;flex-container&amp;quot; style=&amp;quot;display: flex; align-items: stretch;&amp;quot;&amp;gt;
+  &amp;lt;div&amp;gt;1&amp;lt;/div&amp;gt;
+  &amp;lt;div style=&amp;quot;align-self: center;&amp;quot;&amp;gt;2&amp;lt;/div&amp;gt;
+  &amp;lt;div style=&amp;quot;align-self: flex-end;&amp;quot;&amp;gt;3&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.w3.org/TR/css-flexbox-1/#box-model&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://www.w3.org/TR/css-flexbox-1/#box-model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.w3schools.com/css/css3_flexbox.asp&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://www.w3schools.com/css/css3_flexbox.asp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://wcc723.github.io/css/2017/07/21/css-flex/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://wcc723.github.io/css/2017/07/21/css-flex/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.oxxostudio.tw/articles/201501/css-flexbox.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://www.oxxostudio.tw/articles/201501/css-flexbox.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dotblogs.com.tw/leo_codespace/2018/05/02/154954&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://dotblogs.com.tw/leo_codespace/2018/05/02/154954&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>［Java］異常處理機制：throw與throws</title>
@@ -21,7 +310,7 @@
 
 &lt;p&gt;用於丟出一個異常物件。&lt;/p&gt;
 
-&lt;p&gt;語法：寫於程式語句中(method內)。&lt;/p&gt;
+&lt;p&gt;語法：寫於程式語句中。&lt;/p&gt;
 
 &lt;p&gt;throw [例外物件變數];&lt;/p&gt;
 
@@ -31,7 +320,7 @@
 
 &lt;p&gt;用於宣告此method會丟出哪些Exception，表示此method可能會發生哪些例外，加s意指可以同時使用多個Exception子類別修飾方法。&lt;/p&gt;
 
-&lt;p&gt;語法：寫於宣告method的後方。&lt;/p&gt;
+&lt;p&gt;語法：寫於宣告method的地方。&lt;/p&gt;
 
 &lt;p&gt;舉例：public void function() throws Exception {&amp;hellip;}&lt;/p&gt;
 
