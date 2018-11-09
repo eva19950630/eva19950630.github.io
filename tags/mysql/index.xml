@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MySQL on Syuan Tech Blog</title>
+    <link>https://eva19950630.github.io/tags/mysql/</link>
+    <description>Recent content in MySQL on Syuan Tech Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Thu, 08 Nov 2018 22:54:39 +0800</lastBuildDate>
+    
+	<atom:link href="https://eva19950630.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>［MySQL］安裝與介面化工具(for Mac OS)</title>
+      <link>https://eva19950630.github.io/2018/18_11_08_mysql-install-for-mac/</link>
+      <pubDate>Thu, 08 Nov 2018 22:54:39 +0800</pubDate>
+      
+      <guid>https://eva19950630.github.io/2018/18_11_08_mysql-install-for-mac/</guid>
+      <description>Download MySQL Community Server 社群版本，開源免費，但不提供官方技術支援。
+ https://dev.mysql.com/downloads/mysql/  Open/Stop MySQL Server  左上角蘋果圖示 &amp;ndash;&amp;gt; 系統偏好設定 &amp;ndash;&amp;gt; MySQL 進入操作頁面後，就可以開與關MySQL Server  Terminal Command 增加路徑至$PATH(iTerm2+Oh My Zsh) # 進入並編輯.zshrc檔案 $ vim ~/.zshrc # 增加以下敘述，增加後儲存離開 export PATH=&amp;quot;/usr/local/mysql/bin:$PATH&amp;quot; # 關掉terminal，重新打開，輸入以下指令查看$PATH是否有mysql執行路徑 $ echo $PATH  如此一來，即可在terminal上直接使用mysql開頭的指令了。
+進入MySQL 若MySQL下載5.7以上的版本，則安裝包一開始會設定好root初始的密碼(亂數，下載後需複製)。
+# 若root沒有設定密碼 $ mysql -u root # 若root有設定密碼，會跳出輸入密碼的提示，輸入密碼後進入 $ mysql -u root -p  重新設定密碼 mysql&amp;gt; ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;New Password&#39;;  選擇資料庫 mysql&amp;gt; use mysql;  刷新MySQL mysql&amp;gt; flush privileges;  離開MySQL mysql&amp;gt; quit  Mac用介面化工具  Sequel Pro  Reference  https://goo.</description>
+    </item>
+    
+  </channel>
+</rss>

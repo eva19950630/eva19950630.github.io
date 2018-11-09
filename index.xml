@@ -6,8 +6,93 @@
     <description>Recent content in Syuan Tech Blog on Syuan Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Sun, 04 Nov 2018 21:20:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 08 Nov 2018 22:54:39 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>［MySQL］安裝與介面化工具(for Mac OS)</title>
+      <link>https://eva19950630.github.io/2018/18_11_08_mysql-install-for-mac/</link>
+      <pubDate>Thu, 08 Nov 2018 22:54:39 +0800</pubDate>
+      
+      <guid>https://eva19950630.github.io/2018/18_11_08_mysql-install-for-mac/</guid>
+      <description>
+
+&lt;h2 id=&#34;download-mysql-community-server&#34;&gt;Download MySQL Community Server&lt;/h2&gt;
+
+&lt;p&gt;社群版本，開源免費，但不提供官方技術支援。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev.mysql.com/downloads/mysql/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://dev.mysql.com/downloads/mysql/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;open-stop-mysql-server&#34;&gt;Open/Stop MySQL Server&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;左上角蘋果圖示 &amp;ndash;&amp;gt; 系統偏好設定 &amp;ndash;&amp;gt; MySQL&lt;/li&gt;
+&lt;li&gt;進入操作頁面後，就可以開與關MySQL Server&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;terminal-command&#34;&gt;Terminal Command&lt;/h2&gt;
+
+&lt;h3 id=&#34;增加路徑至-path-iterm2-oh-my-zsh&#34;&gt;增加路徑至$PATH(iTerm2+Oh My Zsh)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# 進入並編輯.zshrc檔案
+$ vim ~/.zshrc
+
+# 增加以下敘述，增加後儲存離開
+export PATH=&amp;quot;/usr/local/mysql/bin:$PATH&amp;quot;
+
+# 關掉terminal，重新打開，輸入以下指令查看$PATH是否有mysql執行路徑
+$ echo $PATH
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如此一來，即可在terminal上直接使用&lt;code&gt;mysql&lt;/code&gt;開頭的指令了。&lt;/p&gt;
+
+&lt;h3 id=&#34;進入mysql&#34;&gt;進入MySQL&lt;/h3&gt;
+
+&lt;p&gt;若MySQL下載5.7以上的版本，則安裝包一開始會設定好root初始的密碼(亂數，下載後需複製)。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# 若root沒有設定密碼
+$ mysql -u root
+# 若root有設定密碼，會跳出輸入密碼的提示，輸入密碼後進入
+$ mysql -u root -p
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;重新設定密碼&#34;&gt;重新設定密碼&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mysql&amp;gt; ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;New Password&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;選擇資料庫&#34;&gt;選擇資料庫&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mysql&amp;gt; use mysql;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;刷新mysql&#34;&gt;刷新MySQL&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mysql&amp;gt; flush privileges;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;離開mysql&#34;&gt;離開MySQL&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mysql&amp;gt; quit
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;mac用介面化工具&#34;&gt;Mac用介面化工具&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.sequelpro.com/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;Sequel Pro&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://goo.gl/NpZNQA&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://goo.gl/NpZNQA&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>［CSS3］Flexbox</title>
