@@ -11,10 +11,10 @@
     
     <item>
       <title>安裝Apache Tomcat Server(for Mac OS)</title>
-      <link>https://eva19950630.github.io/2018/18_11_09_apache-tomcat-install/</link>
+      <link>https://eva19950630.github.io/2018/18_11_09_apache-tomcat-install-for-mac/</link>
       <pubDate>Fri, 09 Nov 2018 11:07:48 +0800</pubDate>
       
-      <guid>https://eva19950630.github.io/2018/18_11_09_apache-tomcat-install/</guid>
+      <guid>https://eva19950630.github.io/2018/18_11_09_apache-tomcat-install-for-mac/</guid>
       <description>
 
 &lt;h2 id=&#34;download-apache-tomcat-8-version-8-0-53&#34;&gt;Download Apache Tomcat 8(Version 8.0.53)&lt;/h2&gt;
@@ -27,7 +27,7 @@
 
 &lt;p&gt;下載Version8.0.53的&lt;code&gt;.zip&lt;/code&gt;或&lt;code&gt;.tar.gz&lt;/code&gt;，下載後解壓縮出一個&lt;code&gt;apache-tomcat-8.0.53&lt;/code&gt;的資料夾。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://eva19950630.github.io/18_11_09_apache-tomcat-install/001.png&#34; alt=&#34;下載.zip或.tar.gz&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://eva19950630.github.io/18_11_09_apache-tomcat-install-for-mac/001.png&#34; alt=&#34;下載.zip或.tar.gz&#34; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;start-stop-apache-tomcat-server&#34;&gt;Start/Stop Apache Tomcat Server&lt;/h2&gt;
 
@@ -64,7 +64,7 @@ $ /Library/Tomcat/bin/shutdown.sh
 
 &lt;p&gt;開啟瀏覽器，網址輸入&lt;a href=&#34;http://localhost:8080&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;http://localhost:8080&lt;/a&gt;，出現以下畫面即代表開啟服務成功。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://eva19950630.github.io/18_11_09_apache-tomcat-install/002.png&#34; alt=&#34;開啟Tomcat Server&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://eva19950630.github.io/18_11_09_apache-tomcat-install-for-mac/002.png&#34; alt=&#34;開啟Tomcat Server&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;Tips&lt;/code&gt;&lt;/p&gt;
 
