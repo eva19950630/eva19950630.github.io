@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Syuan Shih">
+  
+  
+  
+  <link rel="prev" href="https://eva19950630.github.io/2018/18_11_08_mysql-install-for-mac/" />
+  
+  <link rel="canonical" href="https://eva19950630.github.io/2018/18_11_09_apache-tomcat-install/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           安裝Apache Tomcat Server(for Mac OS) | Syuan Tech Blog
+       
+  </title>
+  <meta name="title" content="安裝Apache Tomcat Server(for Mac OS) | Syuan Tech Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://eva19950630.github.io/"
+    },
+    "articleSection" : "posts",
+    "name" : "安裝Apache Tomcat Server(for Mac OS)",
+    "headline" : "安裝Apache Tomcat Server(for Mac OS)",
+    "description" : "Download Apache Tomcat 8(Version 8.0.53) 目前穩定版本，Release Data：2018/06/29。
+ https://tomcat.apache.org/download-80.cgi  下載Version8.0.53的.zip或.tar.gz，下載後解壓縮出一個apache-tomcat-8.0.53的資料夾。
+Start/Stop Apache Tomcat Server Step1：將解壓縮後的apache-tomcat-8.0.53資料夾移至/usr/local目錄下 # 預設apache-tomcat-8.0.53資料夾位置在下載資料夾中 $ sudo mv ~/Download/apache-tomcat-8.0.53 /usr/local  Step2：新增symbolic link在/Library目錄下 $ sudo ln -s /usr/local/apache-tomcat-8.0.53 /Library/Tomcat  Step3：更改此symbolic link的使用者權限 # [username]更改為自己的username $ sudo chown -R [username] /Library/Tomcat  Step4：設定bin目錄下的所有shell scripts有被執行的權限 $ sudo chmod +x /Library/Tomcat/bin/*.sh  Step5：開啟/關閉Tomcat Server服務 # 開啟Tomcat Server服務 $ /Library/Tomcat/bin/startup.sh # 關閉Tomcat Server服務 $ /Library/Tomcat/bin/shutdown.sh  開啟瀏覽器，網址輸入http://localhost:8080，出現以下畫面即代表開啟服務成功。
+Tips
+如果要查看Server Status、Manager App、Host Manager這些功能，需要新增管理者的角色權限。",
+    "inLanguage" : "zh-tw",
+    "author" : "Syuan Shih",
+    "creator" : "Syuan Shih",
+    "publisher": "Syuan Shih",
+    "accountablePerson" : "Syuan Shih",
+    "copyrightHolder" : "Syuan Shih",
+    "copyrightYear" : "2018",
+    "datePublished": "2018-11-09 11:07:48 &#43;0800 CST",
+    "dateModified" : "2018-11-09 11:07:48 &#43;0800 CST",
+    "url" : "https://eva19950630.github.io/2018/18_11_09_apache-tomcat-install/",
+    "wordCount" : "113",
+    "keywords" : [ "Apache Tomcat Server", "Syuan Tech Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://eva19950630.github.io/">Syuan Tech Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://eva19950630.github.io/">Syuan Tech Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">安裝Apache Tomcat Server(for Mac OS)</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://eva19950630.github.io/" rel="author">Syuan Shih</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2018-11-09 itemprop="datePublished">November 9, 2018</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://eva19950630.github.io/categories/java-web-spring/"> Java Web/Spring </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="download-apache-tomcat-8-version-8-0-53">Download Apache Tomcat 8(Version 8.0.53)</h2>
+
+<p>目前穩定版本，Release Data：2018/06/29。</p>
+
+<ul>
+<li><a href="https://tomcat.apache.org/download-80.cgi" rel="nofollow noreferrer" target="_blank">https://tomcat.apache.org/download-80.cgi</a></li>
+</ul>
+
+<p>下載Version8.0.53的<code>.zip</code>或<code>.tar.gz</code>，下載後解壓縮出一個<code>apache-tomcat-8.0.53</code>的資料夾。</p>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/18_11_09_apache-tomcat-install/001.png" alt="下載.zip或.tar.gz" class="lazyload"><figcaption class="image-caption">下載.zip或.tar.gz</figcaption></figure></p>
+
+<h2 id="start-stop-apache-tomcat-server">Start/Stop Apache Tomcat Server</h2>
+
+<h3 id="step1-將解壓縮後的apache-tomcat-8-0-53資料夾移至-usr-local-目錄下">Step1：將解壓縮後的apache-tomcat-8.0.53資料夾移至<code>/usr/local</code>目錄下</h3>
+
+<pre><code class="language-bash"># 預設apache-tomcat-8.0.53資料夾位置在下載資料夾中
+$ sudo mv ~/Download/apache-tomcat-8.0.53 /usr/local
+</code></pre>
+
+<h3 id="step2-新增symbolic-link在-library-目錄下">Step2：新增symbolic link在<code>/Library</code>目錄下</h3>
+
+<pre><code class="language-bash">$ sudo ln -s /usr/local/apache-tomcat-8.0.53 /Library/Tomcat
+</code></pre>
+
+<h3 id="step3-更改此symbolic-link的使用者權限">Step3：更改此symbolic link的使用者權限</h3>
+
+<pre><code class="language-bash"># [username]更改為自己的username
+$ sudo chown -R [username] /Library/Tomcat
+</code></pre>
+
+<h3 id="step4-設定bin目錄下的所有shell-scripts有被執行的權限">Step4：設定bin目錄下的所有shell scripts有被執行的權限</h3>
+
+<pre><code class="language-bash">$ sudo chmod +x /Library/Tomcat/bin/*.sh
+</code></pre>
+
+<h3 id="step5-開啟-關閉tomcat-server服務">Step5：開啟/關閉Tomcat Server服務</h3>
+
+<pre><code class="language-bash"># 開啟Tomcat Server服務
+$ /Library/Tomcat/bin/startup.sh
+
+# 關閉Tomcat Server服務
+$ /Library/Tomcat/bin/shutdown.sh
+</code></pre>
+
+<p>開啟瀏覽器，網址輸入<a href="http://localhost:8080" rel="nofollow noreferrer" target="_blank">http://localhost:8080</a>，出現以下畫面即代表開啟服務成功。</p>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/18_11_09_apache-tomcat-install/002.png" alt="開啟Tomcat Server" class="lazyload"><figcaption class="image-caption">開啟Tomcat Server</figcaption></figure></p>
+
+<p><code>Tips</code></p>
+
+<p>如果要查看<code>Server Status</code>、<code>Manager App</code>、<code>Host Manager</code>這些功能，需要新增管理者的角色權限。</p>
+
+<ul>
+<li>先shutdown server</li>
+<li>編輯/Library/Tomcat/conf/tomcat-users.xml</li>
+</ul>
+
+<p>內容最下方有一段註解的：</p>
+
+<pre><code class="language-xml">&lt;role rolename=&quot;tomcat&quot;/&gt;
+&lt;role rolename=&quot;role1&quot;/&gt;
+&lt;user username=&quot;tomcat&quot; password=&quot;&lt;must-be-changed&gt;&quot; roles=&quot;tomcat&quot;/&gt;
+&lt;user username=&quot;both&quot; password=&quot;&lt;must-be-changed&gt;&quot; roles=&quot;tomcat,role1&quot;/&gt;
+&lt;user username=&quot;role1&quot; password=&quot;&lt;must-be-changed&gt;&quot; roles=&quot;role1&quot;/&gt;
+</code></pre>
+
+<p>但刪掉註解後，依舊無法使用Web Manager App的功能。</p>
+
+<p>因此需要新增角色，在檔案中加入下面的內容(上段註解無需打開)：</p>
+
+<pre><code class="language-xml">&lt;role rolename=&quot;admin-gui&quot;/&gt;
+&lt;role rolename=&quot;admin-script&quot;/&gt;
+&lt;role rolename=&quot;manager-gui&quot;/&gt;
+&lt;role rolename=&quot;manager-script&quot;/&gt;
+&lt;role rolename=&quot;manager-jmx&quot;/&gt;
+&lt;role rolename=&quot;manager-status&quot;/&gt;
+# [username]、[password]為自定帳號密碼
+&lt;user username=&quot;[username]&quot; password=&quot;[password]&quot; roles=&quot;manager-gui,manager-script,manager-jmx,manager-status,admin-script,admin-gui&quot;/&gt;
+</code></pre>
+
+<p>存檔後再start server，就可以使用<code>Server Status</code>、<code>Manager App</code>、<code>Host Manager</code>管理server了。</p>
+
+<h3 id="reference">Reference</h3>
+
+<hr />
+
+<ul>
+<li><a href="http://tonytsai1984.blogspot.com/2016/09/mac-os-x-tomcat-9.html" rel="nofollow noreferrer" target="_blank">http://tonytsai1984.blogspot.com/2016/09/mac-os-x-tomcat-9.html</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Syuan Shih </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://eva19950630.github.io/2018/18_11_09_apache-tomcat-install/>https://eva19950630.github.io/2018/18_11_09_apache-tomcat-install/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://eva19950630.github.io/tags/apache-tomcat-server/">
+                    #Apache Tomcat Server</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://eva19950630.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://eva19950630.github.io/2018/18_11_08_mysql-install-for-mac/" class="prev" rel="prev" title="［MySQL］安裝與介面化工具(for Mac OS)"><i class="iconfont icon-left"></i>&nbsp;［MySQL］安裝與介面化工具(for Mac OS)</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2018 - 2018</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://eva19950630.github.io/">Syuan Shih</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

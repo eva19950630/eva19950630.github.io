@@ -10,7 +10,7 @@
   
   
   <link rel="prev" href="https://eva19950630.github.io/2018/18_11_04_css-flexbox/" />
-  
+  <link rel="next" href="https://eva19950630.github.io/2018/18_11_09_apache-tomcat-install/" />
   <link rel="canonical" href="https://eva19950630.github.io/2018/18_11_08_mysql-install-for-mac/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -48,8 +48,8 @@
     "headline" : "［MySQL］安裝與介面化工具(for Mac OS)",
     "description" : "Download MySQL Community Server 社群版本，開源免費，但不提供官方技術支援。
  https://dev.mysql.com/downloads/mysql/  Open/Stop MySQL Server  左上角蘋果圖示 &ndash;&gt; 系統偏好設定 &ndash;&gt; MySQL 進入操作頁面後，就可以開與關MySQL Server  Terminal Command 增加路徑至$PATH(iTerm2+Oh My Zsh) # 進入並編輯.zshrc檔案 $ vim ~/.zshrc # 增加以下敘述，增加後儲存離開 export PATH=&quot;/usr/local/mysql/bin:$PATH&quot; # 關掉terminal，重新打開，輸入以下指令查看$PATH是否有mysql執行路徑 $ echo $PATH  如此一來，即可在terminal上直接使用mysql開頭的指令了。
-進入MySQL 若MySQL下載5.7以上的版本，則安裝包一開始會設定好root初始的密碼(亂數，下載後需複製)。
-# 若root沒有設定密碼 $ mysql -u root # 若root有設定密碼，會跳出輸入密碼的提示，輸入密碼後進入 $ mysql -u root -p  重新設定密碼 mysql&gt; ALTER USER 'root'@'localhost' IDENTIFIED BY 'New Password';  選擇資料庫 mysql&gt; use mysql;  刷新MySQL mysql&gt; flush privileges;  離開MySQL mysql&gt; quit  Mac用介面化工具  Sequel Pro  Reference  https://goo.",
+進入MySQL 若MySQL下載5.7以上的版本，則安裝包一開始會設定好root初始的密碼(亂數，安裝完需複製)。
+# 若root沒有設定密碼 $ mysql -u root # 若root有設定密碼，會跳出輸入密碼的提示，輸入密碼後進入 $ mysql -u root -p  重新設定密碼 mysql&gt; ALTER USER 'root'@'localhost' IDENTIFIED BY 'New Password';  選擇資料庫 mysql&gt; use mysql;  刷新MySQL mysql&gt; flush privileges;  離開MySQL mysql&gt; quit  Mac用介面化工具(Sequel Pro) Step1：下載Sequel Pro  Sequel Pro  Step2：開啟Sequel Pro.",
     "inLanguage" : "zh-tw",
     "author" : "Syuan Shih",
     "creator" : "Syuan Shih",
@@ -60,7 +60,7 @@
     "datePublished": "2018-11-08 22:54:39 &#43;0800 CST",
     "dateModified" : "2018-11-08 22:54:39 &#43;0800 CST",
     "url" : "https://eva19950630.github.io/2018/18_11_08_mysql-install-for-mac/",
-    "wordCount" : "76",
+    "wordCount" : "90",
     "keywords" : [ "MySQL", "Syuan Tech Blog"]
 }
 </script>
@@ -137,6 +137,8 @@
         
 
         
+            
+        
 
         
         
@@ -184,7 +186,7 @@ $ echo $PATH
 
 <h3 id="進入mysql">進入MySQL</h3>
 
-<p>若MySQL下載5.7以上的版本，則安裝包一開始會設定好root初始的密碼(亂數，下載後需複製)。</p>
+<p>若MySQL下載5.7以上的版本，則安裝包一開始會設定好root初始的密碼(亂數，安裝完需複製)。</p>
 
 <pre><code class="language-bash"># 若root沒有設定密碼
 $ mysql -u root
@@ -212,11 +214,37 @@ $ mysql -u root -p
 <pre><code class="language-bash">mysql&gt; quit
 </code></pre>
 
-<h2 id="mac用介面化工具">Mac用介面化工具</h2>
+<h2 id="mac用介面化工具-sequel-pro">Mac用介面化工具(Sequel Pro)</h2>
+
+<h3 id="step1-下載sequel-pro">Step1：下載Sequel Pro</h3>
 
 <ul>
 <li><a href="https://www.sequelpro.com/" rel="nofollow noreferrer" target="_blank">Sequel Pro</a></li>
 </ul>
+
+<h3 id="step2-開啟sequel-pro-app-登入帳號密碼">Step2：開啟Sequel Pro.app，登入帳號密碼</h3>
+
+<p>記得MySQL Server要開啟，帳號密碼輸入剛剛在terminal設定好的root帳號與密碼。</p>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/18_11_08_mysql-install-for-mac/001.png" alt="登入root帳號密碼" class="lazyload"><figcaption class="image-caption">登入root帳號密碼</figcaption></figure></p>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/18_11_08_mysql-install-for-mac/002.png" alt="新增帳號資訊至Favorites" class="lazyload"><figcaption class="image-caption">新增帳號資訊至Favorites</figcaption></figure></p>
+
+<h3 id="step3-新增database與table">Step3：新增database與table</h3>
+
+<ul>
+<li>新增database：上方工具列Database &ndash;&gt; Add Database</li>
+</ul>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/18_11_08_mysql-install-for-mac/003.png" alt="新增database" class="lazyload"><figcaption class="image-caption">新增database</figcaption></figure></p>
+
+<ul>
+<li>新增table：左下角&rdquo;＋&rdquo;圖示</li>
+</ul>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/18_11_08_mysql-install-for-mac/004.png" alt="新增table" class="lazyload"><figcaption class="image-caption">新增table</figcaption></figure></p>
+
+<p>接下來就可以進行基本新增欄位等操作了，基本上類似phpmyadmin的使用方法。</p>
 
 <h3 id="reference">Reference</h3>
 
@@ -267,6 +295,8 @@ $ mysql -u root -p
         <a href="https://eva19950630.github.io/2018/18_11_04_css-flexbox/" class="prev" rel="prev" title="［CSS3］Flexbox"><i class="iconfont icon-left"></i>&nbsp;［CSS3］Flexbox</a>
          
         
+        <a href="https://eva19950630.github.io/2018/18_11_09_apache-tomcat-install/" class="next" rel="next" title="安裝Apache Tomcat Server(for Mac OS)">安裝Apache Tomcat Server(for Mac OS)&nbsp;<i class="iconfont icon-right"></i></a>
+        
     </div>
 
     <div class="post-comment">
@@ -307,8 +337,9 @@ $ mysql -u root -p
 
 
     
-    
-    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
     
   
 

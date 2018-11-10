@@ -6,10 +6,23 @@
     <description>Recent content in Posts on Syuan Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Thu, 08 Nov 2018 22:54:39 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 09 Nov 2018 11:07:48 +0800</lastBuildDate>
     
 	<atom:link href="https://eva19950630.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>安裝Apache Tomcat Server(for Mac OS)</title>
+      <link>https://eva19950630.github.io/2018/18_11_09_apache-tomcat-install/</link>
+      <pubDate>Fri, 09 Nov 2018 11:07:48 +0800</pubDate>
+      
+      <guid>https://eva19950630.github.io/2018/18_11_09_apache-tomcat-install/</guid>
+      <description>Download Apache Tomcat 8(Version 8.0.53) 目前穩定版本，Release Data：2018/06/29。
+ https://tomcat.apache.org/download-80.cgi  下載Version8.0.53的.zip或.tar.gz，下載後解壓縮出一個apache-tomcat-8.0.53的資料夾。
+Start/Stop Apache Tomcat Server Step1：將解壓縮後的apache-tomcat-8.0.53資料夾移至/usr/local目錄下 # 預設apache-tomcat-8.0.53資料夾位置在下載資料夾中 $ sudo mv ~/Download/apache-tomcat-8.0.53 /usr/local  Step2：新增symbolic link在/Library目錄下 $ sudo ln -s /usr/local/apache-tomcat-8.0.53 /Library/Tomcat  Step3：更改此symbolic link的使用者權限 # [username]更改為自己的username $ sudo chown -R [username] /Library/Tomcat  Step4：設定bin目錄下的所有shell scripts有被執行的權限 $ sudo chmod +x /Library/Tomcat/bin/*.sh  Step5：開啟/關閉Tomcat Server服務 # 開啟Tomcat Server服務 $ /Library/Tomcat/bin/startup.sh # 關閉Tomcat Server服務 $ /Library/Tomcat/bin/shutdown.sh  開啟瀏覽器，網址輸入http://localhost:8080，出現以下畫面即代表開啟服務成功。
+Tips
+如果要查看Server Status、Manager App、Host Manager這些功能，需要新增管理者的角色權限。</description>
+    </item>
     
     <item>
       <title>［MySQL］安裝與介面化工具(for Mac OS)</title>
@@ -19,8 +32,8 @@
       <guid>https://eva19950630.github.io/2018/18_11_08_mysql-install-for-mac/</guid>
       <description>Download MySQL Community Server 社群版本，開源免費，但不提供官方技術支援。
  https://dev.mysql.com/downloads/mysql/  Open/Stop MySQL Server  左上角蘋果圖示 &amp;ndash;&amp;gt; 系統偏好設定 &amp;ndash;&amp;gt; MySQL 進入操作頁面後，就可以開與關MySQL Server  Terminal Command 增加路徑至$PATH(iTerm2+Oh My Zsh) # 進入並編輯.zshrc檔案 $ vim ~/.zshrc # 增加以下敘述，增加後儲存離開 export PATH=&amp;quot;/usr/local/mysql/bin:$PATH&amp;quot; # 關掉terminal，重新打開，輸入以下指令查看$PATH是否有mysql執行路徑 $ echo $PATH  如此一來，即可在terminal上直接使用mysql開頭的指令了。
-進入MySQL 若MySQL下載5.7以上的版本，則安裝包一開始會設定好root初始的密碼(亂數，下載後需複製)。
-# 若root沒有設定密碼 $ mysql -u root # 若root有設定密碼，會跳出輸入密碼的提示，輸入密碼後進入 $ mysql -u root -p  重新設定密碼 mysql&amp;gt; ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;New Password&#39;;  選擇資料庫 mysql&amp;gt; use mysql;  刷新MySQL mysql&amp;gt; flush privileges;  離開MySQL mysql&amp;gt; quit  Mac用介面化工具  Sequel Pro  Reference  https://goo.</description>
+進入MySQL 若MySQL下載5.7以上的版本，則安裝包一開始會設定好root初始的密碼(亂數，安裝完需複製)。
+# 若root沒有設定密碼 $ mysql -u root # 若root有設定密碼，會跳出輸入密碼的提示，輸入密碼後進入 $ mysql -u root -p  重新設定密碼 mysql&amp;gt; ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;New Password&#39;;  選擇資料庫 mysql&amp;gt; use mysql;  刷新MySQL mysql&amp;gt; flush privileges;  離開MySQL mysql&amp;gt; quit  Mac用介面化工具(Sequel Pro) Step1：下載Sequel Pro  Sequel Pro  Step2：開啟Sequel Pro.</description>
     </item>
     
     <item>
