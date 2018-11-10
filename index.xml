@@ -17,6 +17,11 @@
       <guid>https://eva19950630.github.io/2018/18_11_09_apache-tomcat-install-for-mac/</guid>
       <description>
 
+&lt;ul&gt;
+&lt;li&gt;Tomcat是一個能執行Servlet和JavaServer Page(JSP)的伺服器(Web Container)，並提供作為Web server的一些特有功能(Tomcat管理和控制平台、安全域管理與Tomcat閥等)。&lt;/li&gt;
+&lt;li&gt;Tomcat包含組態管理工具，使用xml格式設定檔進行組態。&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h2 id=&#34;download-apache-tomcat-8-version-8-0-53&#34;&gt;Download Apache Tomcat 8(Version 8.0.53)&lt;/h2&gt;
 
 &lt;p&gt;目前穩定版本，Release Data：2018/06/29。&lt;/p&gt;
@@ -94,11 +99,11 @@ $ /Library/Tomcat/bin/shutdown.sh
 &amp;lt;role rolename=&amp;quot;manager-script&amp;quot;/&amp;gt;
 &amp;lt;role rolename=&amp;quot;manager-jmx&amp;quot;/&amp;gt;
 &amp;lt;role rolename=&amp;quot;manager-status&amp;quot;/&amp;gt;
-# [username]、[password]為自定帳號密碼
+&amp;lt;!--[username]、[password]為自定帳號密碼--&amp;gt;
 &amp;lt;user username=&amp;quot;[username]&amp;quot; password=&amp;quot;[password]&amp;quot; roles=&amp;quot;manager-gui,manager-script,manager-jmx,manager-status,admin-script,admin-gui&amp;quot;/&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;存檔後再start server，就可以使用&lt;code&gt;Server Status&lt;/code&gt;、&lt;code&gt;Manager App&lt;/code&gt;、&lt;code&gt;Host Manager&lt;/code&gt;管理server了。&lt;/p&gt;
+&lt;p&gt;存檔後再start server，就可以使用&lt;code&gt;Server Status&lt;/code&gt;、&lt;code&gt;Manager App&lt;/code&gt;、&lt;code&gt;Host Manager&lt;/code&gt;管理Tomcat server了。&lt;/p&gt;
 
 &lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
 
@@ -106,6 +111,7 @@ $ /Library/Tomcat/bin/shutdown.sh
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://tonytsai1984.blogspot.com/2016/09/mac-os-x-tomcat-9.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;http://tonytsai1984.blogspot.com/2016/09/mac-os-x-tomcat-9.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/Apache_Tomcat&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://zh.wikipedia.org/wiki/Apache_Tomcat&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

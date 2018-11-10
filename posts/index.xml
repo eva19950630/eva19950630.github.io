@@ -17,11 +17,9 @@
       <pubDate>Fri, 09 Nov 2018 11:07:48 +0800</pubDate>
       
       <guid>https://eva19950630.github.io/2018/18_11_09_apache-tomcat-install-for-mac/</guid>
-      <description>Download Apache Tomcat 8(Version 8.0.53) 目前穩定版本，Release Data：2018/06/29。
+      <description>Tomcat是一個能執行Servlet和JavaServer Page(JSP)的伺服器(Web Container)，並提供作為Web server的一些特有功能(Tomcat管理和控制平台、安全域管理與Tomcat閥等)。 Tomcat包含組態管理工具，使用xml格式設定檔進行組態。  Download Apache Tomcat 8(Version 8.0.53) 目前穩定版本，Release Data：2018/06/29。
  https://tomcat.apache.org/download-80.cgi  下載Version8.0.53的.zip或.tar.gz，下載後解壓縮出一個apache-tomcat-8.0.53的資料夾。
-Start/Stop Apache Tomcat Server Step1：將解壓縮後的apache-tomcat-8.0.53資料夾移至/usr/local目錄下 # 預設apache-tomcat-8.0.53資料夾位置在下載資料夾中 $ sudo mv ~/Download/apache-tomcat-8.0.53 /usr/local  Step2：新增symbolic link在/Library目錄下 $ sudo ln -s /usr/local/apache-tomcat-8.0.53 /Library/Tomcat  Step3：更改此symbolic link的使用者權限 # [username]更改為自己的username $ sudo chown -R [username] /Library/Tomcat  Step4：設定bin目錄下的所有shell scripts有被執行的權限 $ sudo chmod +x /Library/Tomcat/bin/*.sh  Step5：開啟/關閉Tomcat Server服務 # 開啟Tomcat Server服務 $ /Library/Tomcat/bin/startup.sh # 關閉Tomcat Server服務 $ /Library/Tomcat/bin/shutdown.sh  開啟瀏覽器，網址輸入http://localhost:8080，出現以下畫面即代表開啟服務成功。
-Tips
-如果要查看Server Status、Manager App、Host Manager這些功能，需要新增管理者的角色權限。</description>
+Start/Stop Apache Tomcat Server Step1：將解壓縮後的apache-tomcat-8.0.53資料夾移至/usr/local目錄下 # 預設apache-tomcat-8.0.53資料夾位置在下載資料夾中 $ sudo mv ~/Download/apache-tomcat-8.0.53 /usr/local  Step2：新增symbolic link在/Library目錄下 $ sudo ln -s /usr/local/apache-tomcat-8.0.53 /Library/Tomcat  Step3：更改此symbolic link的使用者權限 # [username]更改為自己的username $ sudo chown -R [username] /Library/Tomcat  Step4：設定bin目錄下的所有shell scripts有被執行的權限 $ sudo chmod +x /Library/Tomcat/bin/*.sh  Step5：開啟/關閉Tomcat Server服務 # 開啟Tomcat Server服務 $ /Library/Tomcat/bin/startup.sh # 關閉Tomcat Server服務 $ /Library/Tomcat/bin/shutdown.</description>
     </item>
     
     <item>
