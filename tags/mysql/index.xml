@@ -6,10 +6,21 @@
     <description>Recent content in MySQL on Syuan Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Thu, 08 Nov 2018 22:54:39 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 12 Nov 2018 11:02:53 +0800</lastBuildDate>
     
 	<atom:link href="https://eva19950630.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>［MySQL］SQL語法筆記</title>
+      <link>https://eva19950630.github.io/2018/18_11_12_mysql-command-note/</link>
+      <pubDate>Mon, 12 Nov 2018 11:02:53 +0800</pubDate>
+      
+      <guid>https://eva19950630.github.io/2018/18_11_12_mysql-command-note/</guid>
+      <description>基本資料庫操作  通常這些行為在介面化工具輔助下，較不會使用語法去操作了。  建立/刪除/使用資料庫(database) # [db_name]為自定資料庫名稱 # 建立資料庫 create database [db_name]; # 刪除資料庫 drop database [db_name]; # 使用資料庫 use [db_name];  列出所有資料庫 show databases;  建立/刪除資料表(table) # [table_name]為自定資料表名稱；[column]為自定欄位名稱；[data_type]為設定資料型態 # 建立資料表 create table [table_name] ( [column1] [data_type], [column2] [data_type], [column3] [data_type], ... ); # 刪除資料表 drop table [table_name];  Tips
+創建資料表時常用的資料型態(data type)：
+   資料型態 範圍 說明     INT(size) 有符號範圍：(-2147483648，2147483647)；無符號範圍：(0，4294967295) 大整數值   CHAR(size) 0~255字元 固定長度字串   VARCHAR(size) 0~255字元 不固定長度字串   TEXT 0~65535字元 不固定長度字串   DATE 1000-01-01 ~ 9999-12-31 日期，格式：YYYY-MM-DD   DATETIME 1000-01-01 00:00:00 ~ 9999-12-31 23:59:59 日期與時間，格式：YYYY-MM-DD HH:MI:SS   TIME -838:59:59 ~ 838:59:59 時間，格式：HH:MI:SS     更多型態：https://www.</description>
+    </item>
     
     <item>
       <title>［MySQL］安裝與介面化工具(for Mac OS)</title>

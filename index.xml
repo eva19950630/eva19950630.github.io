@@ -6,8 +6,388 @@
     <description>Recent content in Syuan Tech Blog on Syuan Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Fri, 09 Nov 2018 11:07:48 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 12 Nov 2018 11:02:53 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>［MySQL］SQL語法筆記</title>
+      <link>https://eva19950630.github.io/2018/18_11_12_mysql-command-note/</link>
+      <pubDate>Mon, 12 Nov 2018 11:02:53 +0800</pubDate>
+      
+      <guid>https://eva19950630.github.io/2018/18_11_12_mysql-command-note/</guid>
+      <description>
+
+&lt;h2 id=&#34;基本資料庫操作&#34;&gt;基本資料庫操作&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;通常這些行為在介面化工具輔助下，較不會使用語法去操作了。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;建立-刪除-使用資料庫-database&#34;&gt;建立/刪除/使用資料庫(database)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;# [db_name]為自定資料庫名稱
+# 建立資料庫
+create database [db_name];
+# 刪除資料庫
+drop database [db_name];
+# 使用資料庫
+use [db_name];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;列出所有資料庫&#34;&gt;列出所有資料庫&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;show databases;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;建立-刪除資料表-table&#34;&gt;建立/刪除資料表(table)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;# [table_name]為自定資料表名稱；[column]為自定欄位名稱；[data_type]為設定資料型態
+# 建立資料表
+create table [table_name] (
+	[column1] [data_type],
+	[column2] [data_type],
+	[column3] [data_type],
+	...
+);
+# 刪除資料表
+drop table [table_name];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Tips&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;創建資料表時常用的資料型態(data type)：&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;資料型態&lt;/th&gt;
+&lt;th&gt;範圍&lt;/th&gt;
+&lt;th&gt;說明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;INT(size)&lt;/td&gt;
+&lt;td&gt;有符號範圍：(-2147483648，2147483647)；無符號範圍：(0，4294967295)&lt;/td&gt;
+&lt;td&gt;大整數值&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;CHAR(size)&lt;/td&gt;
+&lt;td&gt;0~255字元&lt;/td&gt;
+&lt;td&gt;固定長度字串&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;VARCHAR(size)&lt;/td&gt;
+&lt;td&gt;0~255字元&lt;/td&gt;
+&lt;td&gt;不固定長度字串&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;TEXT&lt;/td&gt;
+&lt;td&gt;0~65535字元&lt;/td&gt;
+&lt;td&gt;不固定長度字串&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;DATE&lt;/td&gt;
+&lt;td&gt;1000-01-01 ~ 9999-12-31&lt;/td&gt;
+&lt;td&gt;日期，格式：YYYY-MM-DD&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;DATETIME&lt;/td&gt;
+&lt;td&gt;1000-01-01 00:00:00 ~ 9999-12-31 23:59:59&lt;/td&gt;
+&lt;td&gt;日期與時間，格式：YYYY-MM-DD HH:MI:SS&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;TIME&lt;/td&gt;
+&lt;td&gt;-838:59:59 ~ 838:59:59&lt;/td&gt;
+&lt;td&gt;時間，格式：HH:MI:SS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;ul&gt;
+&lt;li&gt;更多型態：&lt;a href=&#34;https://www.w3schools.com/sql/sql_datatypes.asp&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://www.w3schools.com/sql/sql_datatypes.asp&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;# auto_increment表示會自動累加數值；primary key為主鍵設定
+create table student (
+	id int(10) auto_increment primary key,
+	name varchar(20),
+	home varchar(20)
+);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;修改-新增-刪除資料表欄位&#34;&gt;修改/新增/刪除資料表欄位&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;# 修改資料表欄位
+alter table [table_name] change column [old_column_name] [new_column_name] [new_data_type];
+# 新增資料表欄位
+alter table [table_name] add column [column_name] [data_type];
+# 刪除資料表欄位
+alter table [table_name] drop column [column_name];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;alter table student add column gender varchar(10);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;列出資料表欄位資訊&#34;&gt;列出資料表欄位資訊&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;describe [table_name];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;清空資料表內容&#34;&gt;清空資料表內容&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;只清除資料內容，不刪除結構，auto_increment會從1開始。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;truncate table [table_name];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;常用資料庫語法-插入-更新-查詢等&#34;&gt;常用資料庫語法(插入、更新、查詢等)&lt;/h2&gt;
+
+&lt;h3 id=&#34;插入欄位新資料-insert&#34;&gt;插入欄位新資料(insert)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;# [table_name]為自定資料表名稱；[column]為欄位名稱；[value]為欲插入的值
+insert into [table_name] ([column1], [column2], [column3], ...) values ([value1], [value2], [value3], ...);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;insert into student (id, name, home, gender) values (null, &#39;test&#39;, &#39;taipei&#39;, &#39;male&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Tips&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;已經設定auto_increment屬性的欄位，value直接設定&lt;code&gt;null&lt;/code&gt;即可。&lt;/li&gt;
+&lt;li&gt;若是要設定時間(現在時間)，則在欄位value設定&lt;code&gt;NOW()&lt;/code&gt;即可。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;更新欄位資料內容-update&#34;&gt;更新欄位資料內容(update)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;# [table_name]為自定資料表名稱
+# [column]為欄位名稱；[value]為修改後的值
+# [condition]為自定條件式
+update [table_name] set [column1] = [value1], [column2] = [value2], ... where [condition];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;update student set name=&#39;test2&#39;, home=&#39;taitung&#39; where id = 2;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;查詢欄位資料-select&#34;&gt;查詢欄位資料(select)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;# [column]為欄位名稱；[table_name]為自定資料表名稱
+# 查詢單一欄位資料
+select [column] from [table_name];
+# 查詢多個欄位資料
+select [column1], [column2], ... from [table_name];
+# 查詢所有欄位資料
+select * from [table_name];
+# 查詢該欄位「不重複」的值
+select distinct [column] from [table_name];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;select name, home from student;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;條件式查詢資料-where-not-and-or&#34;&gt;條件式查詢資料(where/not/and/or)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;# [table_name]為自定資料表名稱；[condition]為自定條件式
+# 條件式查詢(單一條件)
+select * from [table_name] where [condition];
+# 條件式查詢(單一條件 NOT)
+select * from [table_name] where not [condition];
+# 條件式查詢(多重條件 AND)
+select * from [table_name] where [condition1] and [condition2];
+# 條件式查詢(多重條件 OR)
+select * from [table_name] where [condition1] or [condition2];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;select * from student where home=&#39;taichung&#39; and gender=&#39;female&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Tips&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;通常在進行條件式查詢時，會查詢整個資料表&lt;code&gt;select *&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;單一欄位單一-多個資料查詢-in&#34;&gt;單一欄位單一/多個資料查詢(in)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;# [table_name]為自定資料表名稱
+# [column]為欄位名稱；[value]為欄位內容值
+# 單一欄位單一資料查詢
+select * from [table_name] where [column] in ([value]);
+# 上句就如同下句的意思
+select * from [table_name] where [column] = [value];
+
+# 單一欄位多個資料查詢
+select * from [table_name] where [column] in ([value1], [value2], [value3], ...);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Tips&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;in&lt;/code&gt;可以使用在subquery，通常有兩個資料表以上進行查詢時。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;select * from student where home in (&#39;taipei&#39;, &#39;taichung&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;查詢欄位資料是否為空值-is-null&#34;&gt;查詢欄位資料是否為空值(is null)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;# [table_name]為自定資料表名稱；[column]為欄位名稱
+# 查詢欄位資料是空值
+select * from [table_name] where [column] is null;
+# 查詢欄位資料不是空值
+select * from [table_name] where [column] is not null;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;select * from student where home is null;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;查詢介於範圍值之間的欄位資料-between&#34;&gt;查詢介於範圍值之間的欄位資料(between)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;# [table_name]為自定資料表名稱
+# [column]為欄位名稱；[value]為欄位內容值
+select * from [table_name] where [column] between [value1] and [value2];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;select * from student where age between 20 and 30;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;查詢結果遞增-遞減排序-order-by&#34;&gt;查詢結果遞增/遞減排序(order by)&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;預設為asc，如果沒有寫asc或desc，則結果會遞增排序顯示。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;# [table_name]為自定資料表名稱；[column]為欄位名稱
+# 查詢結果遞增排序
+select * from [table_name] order by [column] asc;
+# 查詢結果遞減排序
+select * from [table_name] order by [column] desc;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;select * from student order by age desc;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;查詢第幾筆範圍結果-limit&#34;&gt;查詢第幾筆範圍結果(limit)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;# [table_name]為自定資料表名稱；[number]填入數目
+# 例如：limit 3, 5 --&amp;gt; 則會顯示第四筆與第五筆
+# 如果只填入一個數字，則會顯示前n筆資料
+select * from [table_name] limit [number], [number];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;select * from student limit 3, 5;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;查詢比對字串後結果-like&#34;&gt;查詢比對字串後結果(like)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;# [table_name]為自定資料表名稱
+# [column]為欄位名稱；[&#39;%string%&#39;]為比對字串內容
+select * from [table_name] where [column] like [&#39;%string%&#39;];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;select * from student where name like &#39;%test%&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Tips&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;各種字串比對寫法：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;rsquo;%a&amp;rsquo;：以a結尾的字串&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;a%&amp;lsquo;：以a開頭的字串&lt;/li&gt;
+&lt;li&gt;&amp;rsquo;%a%&amp;lsquo;：含有a的字串&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;a%o&amp;rsquo;：以a開頭且以o結尾的字串&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;_a_&amp;lsquo;：字串只有三位且中間為a&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;_a&amp;rsquo;：字串只有兩位且結尾為a&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;a_&amp;lsquo;：字串只有兩位且開頭為a&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;查詢各種函式計算結果-avg-count-max-min-sum&#34;&gt;查詢各種函式計算結果(AVG/COUNT/MAX/MIN/SUM)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;# [column]為欄位名稱；[table_name]為自定資料表名稱；[condition]為自定條件式
+# 找出該欄位的平均值
+select AVG([column]) from [table_name] where [condition];
+# 找出該欄位的筆數
+select COUNT([column]) from [table_name] where [condition];
+# 找出該欄位的最大值
+select MAX([column]) from [table_name] where [condition];
+# 找出該欄位的最小值
+select MIN([column]) from [table_name] where [condition];
+# 找出該欄位的計算總和
+select SUM([column]) from [table_name] where [condition];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;select AVG(age) from student where home = &#39;taipei&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;條件式刪除欄位資料-delete&#34;&gt;條件式刪除欄位資料(delete)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;# [table_name]為自定資料表名稱；[condition]為自定條件式
+# 刪除單一條件欄位資料
+delete from [table_name] where [condition];
+# 刪除多重條件欄位資料(AND)
+delete from [table_name] where [condition1] and [condition2];
+# 刪除多重條件欄位資料(OR)
+delete from [table_name] where [condition1] or [condition2];
+# 刪除資料表內所有資料，但auto_increment不會從1開始
+delete from [table_name];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Example&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;delete from student where age = 30;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;進階資料庫語法-合併-進階查詢等&#34;&gt;進階資料庫語法(合併、進階查詢等)&lt;/h2&gt;
+
+&lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.w3schools.com/sql/default.asp&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://www.w3schools.com/sql/default.asp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.runoob.com/mysql/mysql-tutorial.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;http://www.runoob.com/mysql/mysql-tutorial.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://note.drx.tw/2012/12/mysql-syntax.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;http://note.drx.tw/2012/12/mysql-syntax.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.1keydata.com/tw/sql/sql.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://www.1keydata.com/tw/sql/sql.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>安裝Apache Tomcat Server(for Mac OS)</title>
@@ -682,6 +1062,8 @@ theme = &amp;quot;[Theme dir name]&amp;quot;   # [Theme dir name]為主題資料
 title: &amp;quot;[New Post]&amp;quot;   # [New Post]為自定文章標題
 date: 2018-10-29T11:06:37+08:00
 draft: false   # 原本為true，改為false
+categories: [Text Editing/Blog/Github]   # 文章分類
+tags: [Github, Hugo]   # 文章標籤集合(用,隔開)
 ---
 
 [此處可輸入文章內容]
@@ -735,7 +1117,7 @@ git commit -m &amp;quot;Initial commit&amp;quot;
 git push -u origin master
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;code&gt;Hint&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Tips&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;有時候在操作&lt;code&gt;git push&lt;/code&gt;指令時，系統常常會告訴你要設定好要push去哪個分支，產生類似以下的錯誤。&lt;/p&gt;
 

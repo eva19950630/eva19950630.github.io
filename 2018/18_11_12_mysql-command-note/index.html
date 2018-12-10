@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Syuan Shih">
+  
+  
+  
+  <link rel="prev" href="https://eva19950630.github.io/2018/18_11_09_apache-tomcat-install-for-mac/" />
+  
+  <link rel="canonical" href="https://eva19950630.github.io/2018/18_11_12_mysql-command-note/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           ［MySQL］SQL語法筆記 | Syuan Tech Blog
+       
+  </title>
+  <meta name="title" content="［MySQL］SQL語法筆記 | Syuan Tech Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://eva19950630.github.io/"
+    },
+    "articleSection" : "posts",
+    "name" : "［MySQL］SQL語法筆記",
+    "headline" : "［MySQL］SQL語法筆記",
+    "description" : "基本資料庫操作  通常這些行為在介面化工具輔助下，較不會使用語法去操作了。  建立/刪除/使用資料庫(database) # [db_name]為自定資料庫名稱 # 建立資料庫 create database [db_name]; # 刪除資料庫 drop database [db_name]; # 使用資料庫 use [db_name];  列出所有資料庫 show databases;  建立/刪除資料表(table) # [table_name]為自定資料表名稱；[column]為自定欄位名稱；[data_type]為設定資料型態 # 建立資料表 create table [table_name] ( [column1] [data_type], [column2] [data_type], [column3] [data_type], ... ); # 刪除資料表 drop table [table_name];  Tips
+創建資料表時常用的資料型態(data type)：
+   資料型態 範圍 說明     INT(size) 有符號範圍：(-2147483648，2147483647)；無符號範圍：(0，4294967295) 大整數值   CHAR(size) 0~255字元 固定長度字串   VARCHAR(size) 0~255字元 不固定長度字串   TEXT 0~65535字元 不固定長度字串   DATE 1000-01-01 ~ 9999-12-31 日期，格式：YYYY-MM-DD   DATETIME 1000-01-01 00:00:00 ~ 9999-12-31 23:59:59 日期與時間，格式：YYYY-MM-DD HH:MI:SS   TIME -838:59:59 ~ 838:59:59 時間，格式：HH:MI:SS     更多型態：https://www.",
+    "inLanguage" : "zh-tw",
+    "author" : "Syuan Shih",
+    "creator" : "Syuan Shih",
+    "publisher": "Syuan Shih",
+    "accountablePerson" : "Syuan Shih",
+    "copyrightHolder" : "Syuan Shih",
+    "copyrightYear" : "2018",
+    "datePublished": "2018-11-12 11:02:53 &#43;0800 CST",
+    "dateModified" : "2018-11-12 11:02:53 &#43;0800 CST",
+    "url" : "https://eva19950630.github.io/2018/18_11_12_mysql-command-note/",
+    "wordCount" : "595",
+    "keywords" : [ "MySQL", "Syuan Tech Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://eva19950630.github.io/">Syuan Tech Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://eva19950630.github.io/">Syuan Tech Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">［MySQL］SQL語法筆記</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://eva19950630.github.io/" rel="author">Syuan Shih</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2018-11-12 itemprop="datePublished">November 12, 2018</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://eva19950630.github.io/categories/web-back-end-development/"> Web Back-end Development </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="基本資料庫操作">基本資料庫操作</h2>
+
+<ul>
+<li>通常這些行為在介面化工具輔助下，較不會使用語法去操作了。</li>
+</ul>
+
+<h3 id="建立-刪除-使用資料庫-database">建立/刪除/使用資料庫(database)</h3>
+
+<pre><code class="language-sql"># [db_name]為自定資料庫名稱
+# 建立資料庫
+create database [db_name];
+# 刪除資料庫
+drop database [db_name];
+# 使用資料庫
+use [db_name];
+</code></pre>
+
+<h3 id="列出所有資料庫">列出所有資料庫</h3>
+
+<pre><code class="language-sql">show databases;
+</code></pre>
+
+<h3 id="建立-刪除資料表-table">建立/刪除資料表(table)</h3>
+
+<pre><code class="language-sql"># [table_name]為自定資料表名稱；[column]為自定欄位名稱；[data_type]為設定資料型態
+# 建立資料表
+create table [table_name] (
+	[column1] [data_type],
+	[column2] [data_type],
+	[column3] [data_type],
+	...
+);
+# 刪除資料表
+drop table [table_name];
+</code></pre>
+
+<p><code>Tips</code></p>
+
+<p>創建資料表時常用的資料型態(data type)：</p>
+
+<table>
+<thead>
+<tr>
+<th>資料型態</th>
+<th>範圍</th>
+<th>說明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>INT(size)</td>
+<td>有符號範圍：(-2147483648，2147483647)；無符號範圍：(0，4294967295)</td>
+<td>大整數值</td>
+</tr>
+
+<tr>
+<td>CHAR(size)</td>
+<td>0~255字元</td>
+<td>固定長度字串</td>
+</tr>
+
+<tr>
+<td>VARCHAR(size)</td>
+<td>0~255字元</td>
+<td>不固定長度字串</td>
+</tr>
+
+<tr>
+<td>TEXT</td>
+<td>0~65535字元</td>
+<td>不固定長度字串</td>
+</tr>
+
+<tr>
+<td>DATE</td>
+<td>1000-01-01 ~ 9999-12-31</td>
+<td>日期，格式：YYYY-MM-DD</td>
+</tr>
+
+<tr>
+<td>DATETIME</td>
+<td>1000-01-01 00:00:00 ~ 9999-12-31 23:59:59</td>
+<td>日期與時間，格式：YYYY-MM-DD HH:MI:SS</td>
+</tr>
+
+<tr>
+<td>TIME</td>
+<td>-838:59:59 ~ 838:59:59</td>
+<td>時間，格式：HH:MI:SS</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>更多型態：<a href="https://www.w3schools.com/sql/sql_datatypes.asp" rel="nofollow noreferrer" target="_blank">https://www.w3schools.com/sql/sql_datatypes.asp</a></li>
+</ul>
+
+<p><code>Example</code></p>
+
+<pre><code class="language-sql"># auto_increment表示會自動累加數值；primary key為主鍵設定
+create table student (
+	id int(10) auto_increment primary key,
+	name varchar(20),
+	home varchar(20)
+);
+</code></pre>
+
+<h3 id="修改-新增-刪除資料表欄位">修改/新增/刪除資料表欄位</h3>
+
+<pre><code class="language-sql"># 修改資料表欄位
+alter table [table_name] change column [old_column_name] [new_column_name] [new_data_type];
+# 新增資料表欄位
+alter table [table_name] add column [column_name] [data_type];
+# 刪除資料表欄位
+alter table [table_name] drop column [column_name];
+</code></pre>
+
+<p><code>Example</code></p>
+
+<pre><code class="language-sql">alter table student add column gender varchar(10);
+</code></pre>
+
+<h3 id="列出資料表欄位資訊">列出資料表欄位資訊</h3>
+
+<pre><code class="language-sql">describe [table_name];
+</code></pre>
+
+<h3 id="清空資料表內容">清空資料表內容</h3>
+
+<ul>
+<li>只清除資料內容，不刪除結構，auto_increment會從1開始。</li>
+</ul>
+
+<pre><code class="language-sql">truncate table [table_name];
+</code></pre>
+
+<h2 id="常用資料庫語法-插入-更新-查詢等">常用資料庫語法(插入、更新、查詢等)</h2>
+
+<h3 id="插入欄位新資料-insert">插入欄位新資料(insert)</h3>
+
+<pre><code class="language-sql"># [table_name]為自定資料表名稱；[column]為欄位名稱；[value]為欲插入的值
+insert into [table_name] ([column1], [column2], [column3], ...) values ([value1], [value2], [value3], ...);
+</code></pre>
+
+<p><code>Example</code></p>
+
+<pre><code class="language-sql">insert into student (id, name, home, gender) values (null, 'test', 'taipei', 'male');
+</code></pre>
+
+<p><code>Tips</code></p>
+
+<ul>
+<li>已經設定auto_increment屬性的欄位，value直接設定<code>null</code>即可。</li>
+<li>若是要設定時間(現在時間)，則在欄位value設定<code>NOW()</code>即可。</li>
+</ul>
+
+<h3 id="更新欄位資料內容-update">更新欄位資料內容(update)</h3>
+
+<pre><code class="language-sql"># [table_name]為自定資料表名稱
+# [column]為欄位名稱；[value]為修改後的值
+# [condition]為自定條件式
+update [table_name] set [column1] = [value1], [column2] = [value2], ... where [condition];
+</code></pre>
+
+<p><code>Example</code></p>
+
+<pre><code class="language-sql">update student set name='test2', home='taitung' where id = 2;
+</code></pre>
+
+<h3 id="查詢欄位資料-select">查詢欄位資料(select)</h3>
+
+<pre><code class="language-sql"># [column]為欄位名稱；[table_name]為自定資料表名稱
+# 查詢單一欄位資料
+select [column] from [table_name];
+# 查詢多個欄位資料
+select [column1], [column2], ... from [table_name];
+# 查詢所有欄位資料
+select * from [table_name];
+# 查詢該欄位「不重複」的值
+select distinct [column] from [table_name];
+</code></pre>
+
+<p><code>Example</code></p>
+
+<pre><code class="language-sql">select name, home from student;
+</code></pre>
+
+<h3 id="條件式查詢資料-where-not-and-or">條件式查詢資料(where/not/and/or)</h3>
+
+<pre><code class="language-sql"># [table_name]為自定資料表名稱；[condition]為自定條件式
+# 條件式查詢(單一條件)
+select * from [table_name] where [condition];
+# 條件式查詢(單一條件 NOT)
+select * from [table_name] where not [condition];
+# 條件式查詢(多重條件 AND)
+select * from [table_name] where [condition1] and [condition2];
+# 條件式查詢(多重條件 OR)
+select * from [table_name] where [condition1] or [condition2];
+</code></pre>
+
+<p><code>Example</code></p>
+
+<pre><code class="language-sql">select * from student where home='taichung' and gender='female';
+</code></pre>
+
+<p><code>Tips</code></p>
+
+<ul>
+<li>通常在進行條件式查詢時，會查詢整個資料表<code>select *</code>。</li>
+</ul>
+
+<h3 id="單一欄位單一-多個資料查詢-in">單一欄位單一/多個資料查詢(in)</h3>
+
+<pre><code class="language-sql"># [table_name]為自定資料表名稱
+# [column]為欄位名稱；[value]為欄位內容值
+# 單一欄位單一資料查詢
+select * from [table_name] where [column] in ([value]);
+# 上句就如同下句的意思
+select * from [table_name] where [column] = [value];
+
+# 單一欄位多個資料查詢
+select * from [table_name] where [column] in ([value1], [value2], [value3], ...);
+</code></pre>
+
+<p><code>Tips</code></p>
+
+<ul>
+<li><code>in</code>可以使用在subquery，通常有兩個資料表以上進行查詢時。</li>
+</ul>
+
+<p><code>Example</code></p>
+
+<pre><code class="language-sql">select * from student where home in ('taipei', 'taichung');
+</code></pre>
+
+<h3 id="查詢欄位資料是否為空值-is-null">查詢欄位資料是否為空值(is null)</h3>
+
+<pre><code class="language-sql"># [table_name]為自定資料表名稱；[column]為欄位名稱
+# 查詢欄位資料是空值
+select * from [table_name] where [column] is null;
+# 查詢欄位資料不是空值
+select * from [table_name] where [column] is not null;
+</code></pre>
+
+<p><code>Example</code></p>
+
+<pre><code class="language-sql">select * from student where home is null;
+</code></pre>
+
+<h3 id="查詢介於範圍值之間的欄位資料-between">查詢介於範圍值之間的欄位資料(between)</h3>
+
+<pre><code class="language-sql"># [table_name]為自定資料表名稱
+# [column]為欄位名稱；[value]為欄位內容值
+select * from [table_name] where [column] between [value1] and [value2];
+</code></pre>
+
+<p><code>Example</code></p>
+
+<pre><code class="language-sql">select * from student where age between 20 and 30;
+</code></pre>
+
+<h3 id="查詢結果遞增-遞減排序-order-by">查詢結果遞增/遞減排序(order by)</h3>
+
+<ul>
+<li>預設為asc，如果沒有寫asc或desc，則結果會遞增排序顯示。</li>
+</ul>
+
+<pre><code class="language-sql"># [table_name]為自定資料表名稱；[column]為欄位名稱
+# 查詢結果遞增排序
+select * from [table_name] order by [column] asc;
+# 查詢結果遞減排序
+select * from [table_name] order by [column] desc;
+</code></pre>
+
+<p><code>Example</code></p>
+
+<pre><code class="language-sql">select * from student order by age desc;
+</code></pre>
+
+<h3 id="查詢第幾筆範圍結果-limit">查詢第幾筆範圍結果(limit)</h3>
+
+<pre><code class="language-sql"># [table_name]為自定資料表名稱；[number]填入數目
+# 例如：limit 3, 5 --&gt; 則會顯示第四筆與第五筆
+# 如果只填入一個數字，則會顯示前n筆資料
+select * from [table_name] limit [number], [number];
+</code></pre>
+
+<p><code>Example</code></p>
+
+<pre><code class="language-sql">select * from student limit 3, 5;
+</code></pre>
+
+<h3 id="查詢比對字串後結果-like">查詢比對字串後結果(like)</h3>
+
+<pre><code class="language-sql"># [table_name]為自定資料表名稱
+# [column]為欄位名稱；['%string%']為比對字串內容
+select * from [table_name] where [column] like ['%string%'];
+</code></pre>
+
+<p><code>Example</code></p>
+
+<pre><code class="language-sql">select * from student where name like '%test%';
+</code></pre>
+
+<p><code>Tips</code></p>
+
+<p>各種字串比對寫法：</p>
+
+<ul>
+<li>&rsquo;%a&rsquo;：以a結尾的字串</li>
+<li>&lsquo;a%&lsquo;：以a開頭的字串</li>
+<li>&rsquo;%a%&lsquo;：含有a的字串</li>
+<li>&lsquo;a%o&rsquo;：以a開頭且以o結尾的字串</li>
+<li>&lsquo;_a_&lsquo;：字串只有三位且中間為a</li>
+<li>&lsquo;_a&rsquo;：字串只有兩位且結尾為a</li>
+<li>&lsquo;a_&lsquo;：字串只有兩位且開頭為a</li>
+</ul>
+
+<h3 id="查詢各種函式計算結果-avg-count-max-min-sum">查詢各種函式計算結果(AVG/COUNT/MAX/MIN/SUM)</h3>
+
+<pre><code class="language-sql"># [column]為欄位名稱；[table_name]為自定資料表名稱；[condition]為自定條件式
+# 找出該欄位的平均值
+select AVG([column]) from [table_name] where [condition];
+# 找出該欄位的筆數
+select COUNT([column]) from [table_name] where [condition];
+# 找出該欄位的最大值
+select MAX([column]) from [table_name] where [condition];
+# 找出該欄位的最小值
+select MIN([column]) from [table_name] where [condition];
+# 找出該欄位的計算總和
+select SUM([column]) from [table_name] where [condition];
+</code></pre>
+
+<p><code>Example</code></p>
+
+<pre><code class="language-sql">select AVG(age) from student where home = 'taipei';
+</code></pre>
+
+<h3 id="條件式刪除欄位資料-delete">條件式刪除欄位資料(delete)</h3>
+
+<pre><code class="language-sql"># [table_name]為自定資料表名稱；[condition]為自定條件式
+# 刪除單一條件欄位資料
+delete from [table_name] where [condition];
+# 刪除多重條件欄位資料(AND)
+delete from [table_name] where [condition1] and [condition2];
+# 刪除多重條件欄位資料(OR)
+delete from [table_name] where [condition1] or [condition2];
+# 刪除資料表內所有資料，但auto_increment不會從1開始
+delete from [table_name];
+</code></pre>
+
+<p><code>Example</code></p>
+
+<pre><code class="language-sql">delete from student where age = 30;
+</code></pre>
+
+<h2 id="進階資料庫語法-合併-進階查詢等">進階資料庫語法(合併、進階查詢等)</h2>
+
+<h3 id="reference">Reference</h3>
+
+<hr />
+
+<ul>
+<li><a href="https://www.w3schools.com/sql/default.asp" rel="nofollow noreferrer" target="_blank">https://www.w3schools.com/sql/default.asp</a></li>
+<li><a href="http://www.runoob.com/mysql/mysql-tutorial.html" rel="nofollow noreferrer" target="_blank">http://www.runoob.com/mysql/mysql-tutorial.html</a></li>
+<li><a href="http://note.drx.tw/2012/12/mysql-syntax.html" rel="nofollow noreferrer" target="_blank">http://note.drx.tw/2012/12/mysql-syntax.html</a></li>
+<li><a href="https://www.1keydata.com/tw/sql/sql.html" rel="nofollow noreferrer" target="_blank">https://www.1keydata.com/tw/sql/sql.html</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Syuan Shih </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://eva19950630.github.io/2018/18_11_12_mysql-command-note/>https://eva19950630.github.io/2018/18_11_12_mysql-command-note/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://eva19950630.github.io/tags/mysql/">
+                    #MySQL</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://eva19950630.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://eva19950630.github.io/2018/18_11_09_apache-tomcat-install-for-mac/" class="prev" rel="prev" title="安裝Apache Tomcat Server(for Mac OS)"><i class="iconfont icon-left"></i>&nbsp;安裝Apache Tomcat Server(for Mac OS)</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2018 - 2018</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://eva19950630.github.io/">Syuan Shih</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
