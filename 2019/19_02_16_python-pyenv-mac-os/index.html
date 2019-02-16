@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Syuan Shih">
+  
+  
+  
+  <link rel="prev" href="https://eva19950630.github.io/2019/19_01_13_vuejs-proj-start/" />
+  
+  <link rel="canonical" href="https://eva19950630.github.io/2019/19_02_16_python-pyenv-mac-os/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           ［Python］安裝pyenv - Python各版本環境切換(for Mac OS) | Syuan Tech Blog
+       
+  </title>
+  <meta name="title" content="［Python］安裝pyenv - Python各版本環境切換(for Mac OS) | Syuan Tech Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://eva19950630.github.io/"
+    },
+    "articleSection" : "posts",
+    "name" : "［Python］安裝pyenv - Python各版本環境切換(for Mac OS)",
+    "headline" : "［Python］安裝pyenv - Python各版本環境切換(for Mac OS)",
+    "description" : "使用pyenv這個套件即可下指令切換本機Python的執行版本環境。
+Step1：使用Homebrew安裝pyenv $ brew update $ brew install pyenv  Step2：修改設定檔 - 設定環境變數  bash：修改 ~/.bashrc zsh：修改 ~/.zshrc  新增下方兩行：
+export PATH=&quot;$HOME/.pyenv/bin:$PATH&quot; eval &quot;$(pyenv init -)&quot;  最後重新更新 ~/.bashrc or ~/.zshrc 或重新啟動terminal
+$ source ~/.bashrc $ source ~/.zshrc  Step3：依需要安裝python各版本  檢視可以安裝的版本(純版本號為官方版本，其他為衍生版本)  $ pyenv install --list   安裝需要的版本  $ pyenv install 3.7.2 $ pyenv install 2.7.10   檢視系統已安裝的版本  $ pyenv versions # output(*表示當前系統使用的版本) * system (set by [HOME DIR]/.",
+    "inLanguage" : "zh-tw",
+    "author" : "Syuan Shih",
+    "creator" : "Syuan Shih",
+    "publisher": "Syuan Shih",
+    "accountablePerson" : "Syuan Shih",
+    "copyrightHolder" : "Syuan Shih",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-02-16 16:52:48 &#43;0800 CST",
+    "dateModified" : "2019-02-16 16:52:48 &#43;0800 CST",
+    "url" : "https://eva19950630.github.io/2019/19_02_16_python-pyenv-mac-os/",
+    "wordCount" : "101",
+    "keywords" : [ "Python", "Syuan Tech Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://eva19950630.github.io/">Syuan Tech Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://eva19950630.github.io/">Syuan Tech Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">［Python］安裝pyenv - Python各版本環境切換(for Mac OS)</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://eva19950630.github.io/" rel="author">Syuan Shih</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-02-16 itemprop="datePublished">February 16, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://eva19950630.github.io/categories/data-science/"> Data Science </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>使用pyenv這個套件即可下指令切換本機Python的執行版本環境。</p>
+
+<h3 id="step1-使用homebrew安裝pyenv">Step1：使用Homebrew安裝pyenv</h3>
+
+<pre><code class="language-bash">$ brew update
+$ brew install pyenv
+</code></pre>
+
+<h3 id="step2-修改設定檔-設定環境變數">Step2：修改設定檔 - 設定環境變數</h3>
+
+<ul>
+<li>bash：修改 <code>~/.bashrc</code></li>
+<li>zsh：修改 <code>~/.zshrc</code></li>
+</ul>
+
+<p>新增下方兩行：</p>
+
+<pre><code class="language-bash">export PATH=&quot;$HOME/.pyenv/bin:$PATH&quot;
+eval &quot;$(pyenv init -)&quot;
+</code></pre>
+
+<p>最後重新更新 <code>~/.bashrc</code> or <code>~/.zshrc</code> 或重新啟動terminal</p>
+
+<pre><code class="language-bash">$ source ~/.bashrc
+$ source ~/.zshrc
+</code></pre>
+
+<h3 id="step3-依需要安裝python各版本">Step3：依需要安裝python各版本</h3>
+
+<ul>
+<li>檢視可以安裝的版本(純版本號為官方版本，其他為衍生版本)</li>
+</ul>
+
+<pre><code class="language-bash">$ pyenv install --list
+</code></pre>
+
+<ul>
+<li>安裝需要的版本</li>
+</ul>
+
+<pre><code class="language-bash">$ pyenv install 3.7.2
+$ pyenv install 2.7.10
+</code></pre>
+
+<ul>
+<li>檢視系統已安裝的版本</li>
+</ul>
+
+<pre><code class="language-bash">$ pyenv versions
+
+# output(*表示當前系統使用的版本)
+* system (set by [HOME DIR]/.pyenv/version)
+  2.7.10
+  3.7.2
+</code></pre>
+
+<ul>
+<li>確定安裝完成後，更新資料庫</li>
+</ul>
+
+<pre><code class="language-bash">$ pyenv rehash
+</code></pre>
+
+<ul>
+<li>切換python版本</li>
+</ul>
+
+<pre><code class="language-bash">$ pyenv global 3.7.2
+$ pyenv global 2.7.10
+</code></pre>
+
+<ul>
+<li>檢視目前系統python的版本</li>
+</ul>
+
+<pre><code class="language-bash"># 第一種方式(看*位置是否在設定的版本號前方)
+$ pyenv versions
+
+# 第二種方式(使用python指令查看)
+$ python --version
+
+# 第三種方式(直接進入python指令環境)
+$ python
+# 進入後會寫目前系統版本號
+&gt;&gt;&gt; 可輸入指令
+&gt;&gt;&gt; exit() #退出python指令環境
+</code></pre>
+
+<h3 id="reference">Reference</h3>
+
+<hr />
+
+<ul>
+<li><a href="https://github.com/pyenv/pyenv" rel="nofollow noreferrer" target="_blank">https://github.com/pyenv/pyenv</a></li>
+<li><a href="https://www.itread01.com/content/1547663242.html" rel="nofollow noreferrer" target="_blank">https://www.itread01.com/content/1547663242.html</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Syuan Shih </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://eva19950630.github.io/2019/19_02_16_python-pyenv-mac-os/>https://eva19950630.github.io/2019/19_02_16_python-pyenv-mac-os/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://eva19950630.github.io/tags/python/">
+                    #Python</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://eva19950630.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://eva19950630.github.io/2019/19_01_13_vuejs-proj-start/" class="prev" rel="prev" title="［Vue.js］安裝CLI與建立Project"><i class="iconfont icon-left"></i>&nbsp;［Vue.js］安裝CLI與建立Project</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2018 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://eva19950630.github.io/">Syuan Shih</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

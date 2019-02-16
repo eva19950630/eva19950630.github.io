@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vue.js on Syuan Tech Blog</title>
+    <link>https://eva19950630.github.io/tags/vue.js/</link>
+    <description>Recent content in Vue.js on Syuan Tech Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sun, 13 Jan 2019 11:00:13 +0800</lastBuildDate>
+    
+	<atom:link href="https://eva19950630.github.io/tags/vue.js/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>［Vue.js］安裝CLI與建立Project</title>
+      <link>https://eva19950630.github.io/2019/19_01_13_vuejs-proj-start/</link>
+      <pubDate>Sun, 13 Jan 2019 11:00:13 +0800</pubDate>
+      
+      <guid>https://eva19950630.github.io/2019/19_01_13_vuejs-proj-start/</guid>
+      <description> Install Vue CLI 目前版本：3.x以上，Release：2018/08。
+Step1：安裝Node.js與npm套件管理工具 建議直接在官網下載Node.js安裝包：https://nodejs.org/en/download/
+目前node.js安裝時，會一併將npm也裝好，因此當Node.js下載安裝完後，在terminal打指令查看是否有正確安裝完成：
+$ node -v $ npm -v # 結果應該會出現node與npm目前安裝後的version  Step2：安裝Vue CLI 在linux command中，要使用npm安裝全域套件，需進root才有權限安裝。
+$ sudo -s # 輸入密碼進入root $ npm install -g @vue/cli # 安裝後，查看vue版號，檢查是否安裝成功 $ vue --version  Reference  https://cli.vuejs.org/guide/  </description>
+    </item>
+    
+  </channel>
+</rss>

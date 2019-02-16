@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Syuan Tech Blog</title>
+    <link>https://eva19950630.github.io/tags/python/</link>
+    <description>Recent content in Python on Syuan Tech Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sat, 16 Feb 2019 16:52:48 +0800</lastBuildDate>
+    
+	<atom:link href="https://eva19950630.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>［Python］安裝pyenv - Python各版本環境切換(for Mac OS)</title>
+      <link>https://eva19950630.github.io/2019/19_02_16_python-pyenv-mac-os/</link>
+      <pubDate>Sat, 16 Feb 2019 16:52:48 +0800</pubDate>
+      
+      <guid>https://eva19950630.github.io/2019/19_02_16_python-pyenv-mac-os/</guid>
+      <description>使用pyenv這個套件即可下指令切換本機Python的執行版本環境。
+Step1：使用Homebrew安裝pyenv $ brew update $ brew install pyenv  Step2：修改設定檔 - 設定環境變數  bash：修改 ~/.bashrc zsh：修改 ~/.zshrc  新增下方兩行：
+export PATH=&amp;quot;$HOME/.pyenv/bin:$PATH&amp;quot; eval &amp;quot;$(pyenv init -)&amp;quot;  最後重新更新 ~/.bashrc or ~/.zshrc 或重新啟動terminal
+$ source ~/.bashrc $ source ~/.zshrc  Step3：依需要安裝python各版本  檢視可以安裝的版本(純版本號為官方版本，其他為衍生版本)  $ pyenv install --list   安裝需要的版本  $ pyenv install 3.7.2 $ pyenv install 2.7.10   檢視系統已安裝的版本  $ pyenv versions # output(*表示當前系統使用的版本) * system (set by [HOME DIR]/.</description>
+    </item>
+    
+  </channel>
+</rss>

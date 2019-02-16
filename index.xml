@@ -6,8 +6,159 @@
     <description>Recent content in Syuan Tech Blog on Syuan Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Mon, 12 Nov 2018 11:02:53 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 16 Feb 2019 16:52:48 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>［Python］安裝pyenv - Python各版本環境切換(for Mac OS)</title>
+      <link>https://eva19950630.github.io/2019/19_02_16_python-pyenv-mac-os/</link>
+      <pubDate>Sat, 16 Feb 2019 16:52:48 +0800</pubDate>
+      
+      <guid>https://eva19950630.github.io/2019/19_02_16_python-pyenv-mac-os/</guid>
+      <description>
+
+&lt;p&gt;使用pyenv這個套件即可下指令切換本機Python的執行版本環境。&lt;/p&gt;
+
+&lt;h3 id=&#34;step1-使用homebrew安裝pyenv&#34;&gt;Step1：使用Homebrew安裝pyenv&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ brew update
+$ brew install pyenv
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;step2-修改設定檔-設定環境變數&#34;&gt;Step2：修改設定檔 - 設定環境變數&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;bash：修改 &lt;code&gt;~/.bashrc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;zsh：修改 &lt;code&gt;~/.zshrc&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;新增下方兩行：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export PATH=&amp;quot;$HOME/.pyenv/bin:$PATH&amp;quot;
+eval &amp;quot;$(pyenv init -)&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;最後重新更新 &lt;code&gt;~/.bashrc&lt;/code&gt; or &lt;code&gt;~/.zshrc&lt;/code&gt; 或重新啟動terminal&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ source ~/.bashrc
+$ source ~/.zshrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;step3-依需要安裝python各版本&#34;&gt;Step3：依需要安裝python各版本&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;檢視可以安裝的版本(純版本號為官方版本，其他為衍生版本)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ pyenv install --list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;安裝需要的版本&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ pyenv install 3.7.2
+$ pyenv install 2.7.10
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;檢視系統已安裝的版本&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ pyenv versions
+
+# output(*表示當前系統使用的版本)
+* system (set by [HOME DIR]/.pyenv/version)
+  2.7.10
+  3.7.2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;確定安裝完成後，更新資料庫&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ pyenv rehash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;切換python版本&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ pyenv global 3.7.2
+$ pyenv global 2.7.10
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;檢視目前系統python的版本&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# 第一種方式(看*位置是否在設定的版本號前方)
+$ pyenv versions
+
+# 第二種方式(使用python指令查看)
+$ python --version
+
+# 第三種方式(直接進入python指令環境)
+$ python
+# 進入後會寫目前系統版本號
+&amp;gt;&amp;gt;&amp;gt; 可輸入指令
+&amp;gt;&amp;gt;&amp;gt; exit() #退出python指令環境
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/pyenv/pyenv&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://github.com/pyenv/pyenv&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.itread01.com/content/1547663242.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://www.itread01.com/content/1547663242.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>［Vue.js］安裝CLI與建立Project</title>
+      <link>https://eva19950630.github.io/2019/19_01_13_vuejs-proj-start/</link>
+      <pubDate>Sun, 13 Jan 2019 11:00:13 +0800</pubDate>
+      
+      <guid>https://eva19950630.github.io/2019/19_01_13_vuejs-proj-start/</guid>
+      <description>
+
+&lt;h2 id=&#34;install-vue-cli&#34;&gt;Install Vue CLI&lt;/h2&gt;
+
+&lt;p&gt;目前版本：3.x以上，Release：2018/08。&lt;/p&gt;
+
+&lt;h3 id=&#34;step1-安裝node-js與npm套件管理工具&#34;&gt;Step1：安裝Node.js與npm套件管理工具&lt;/h3&gt;
+
+&lt;p&gt;建議直接在官網下載Node.js安裝包：&lt;a href=&#34;https://nodejs.org/en/download/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://nodejs.org/en/download/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;目前node.js安裝時，會一併將npm也裝好，因此當Node.js下載安裝完後，在terminal打指令查看是否有正確安裝完成：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ node -v
+$ npm -v
+# 結果應該會出現node與npm目前安裝後的version
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;step2-安裝vue-cli&#34;&gt;Step2：安裝Vue CLI&lt;/h3&gt;
+
+&lt;p&gt;在linux command中，要使用npm安裝全域套件，需進root才有權限安裝。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo -s
+# 輸入密碼進入root
+$ npm install -g @vue/cli
+# 安裝後，查看vue版號，檢查是否安裝成功
+$ vue --version
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://cli.vuejs.org/guide/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://cli.vuejs.org/guide/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>［MySQL］SQL語法筆記</title>

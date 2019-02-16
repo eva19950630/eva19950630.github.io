@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Syuan Shih">
+  
+  
+  
+  <link rel="prev" href="https://eva19950630.github.io/2018/18_11_12_mysql-command-note/" />
+  <link rel="next" href="https://eva19950630.github.io/2019/19_02_16_python-pyenv-mac-os/" />
+  <link rel="canonical" href="https://eva19950630.github.io/2019/19_01_13_vuejs-proj-start/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           ［Vue.js］安裝CLI與建立Project | Syuan Tech Blog
+       
+  </title>
+  <meta name="title" content="［Vue.js］安裝CLI與建立Project | Syuan Tech Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://eva19950630.github.io/"
+    },
+    "articleSection" : "posts",
+    "name" : "［Vue.js］安裝CLI與建立Project",
+    "headline" : "［Vue.js］安裝CLI與建立Project",
+    "description" : " Install Vue CLI 目前版本：3.x以上，Release：2018/08。
+Step1：安裝Node.js與npm套件管理工具 建議直接在官網下載Node.js安裝包：https://nodejs.org/en/download/
+目前node.js安裝時，會一併將npm也裝好，因此當Node.js下載安裝完後，在terminal打指令查看是否有正確安裝完成：
+$ node -v $ npm -v # 結果應該會出現node與npm目前安裝後的version  Step2：安裝Vue CLI 在linux command中，要使用npm安裝全域套件，需進root才有權限安裝。
+$ sudo -s # 輸入密碼進入root $ npm install -g @vue/cli # 安裝後，查看vue版號，檢查是否安裝成功 $ vue --version  Reference  https://cli.vuejs.org/guide/  ",
+    "inLanguage" : "zh-tw",
+    "author" : "Syuan Shih",
+    "creator" : "Syuan Shih",
+    "publisher": "Syuan Shih",
+    "accountablePerson" : "Syuan Shih",
+    "copyrightHolder" : "Syuan Shih",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-01-13 11:00:13 &#43;0800 CST",
+    "dateModified" : "2019-01-13 11:00:13 &#43;0800 CST",
+    "url" : "https://eva19950630.github.io/2019/19_01_13_vuejs-proj-start/",
+    "wordCount" : "36",
+    "keywords" : [ "Vue.js", "Syuan Tech Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://eva19950630.github.io/">Syuan Tech Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://eva19950630.github.io/">Syuan Tech Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">［Vue.js］安裝CLI與建立Project</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://eva19950630.github.io/" rel="author">Syuan Shih</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-01-13 itemprop="datePublished">January 13, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://eva19950630.github.io/categories/web-front-end-development/"> Web Front-end Development </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h2 id="install-vue-cli">Install Vue CLI</h2>
+
+<p>目前版本：3.x以上，Release：2018/08。</p>
+
+<h3 id="step1-安裝node-js與npm套件管理工具">Step1：安裝Node.js與npm套件管理工具</h3>
+
+<p>建議直接在官網下載Node.js安裝包：<a href="https://nodejs.org/en/download/" rel="nofollow noreferrer" target="_blank">https://nodejs.org/en/download/</a></p>
+
+<p>目前node.js安裝時，會一併將npm也裝好，因此當Node.js下載安裝完後，在terminal打指令查看是否有正確安裝完成：</p>
+
+<pre><code class="language-bash">$ node -v
+$ npm -v
+# 結果應該會出現node與npm目前安裝後的version
+</code></pre>
+
+<h3 id="step2-安裝vue-cli">Step2：安裝Vue CLI</h3>
+
+<p>在linux command中，要使用npm安裝全域套件，需進root才有權限安裝。</p>
+
+<pre><code class="language-bash">$ sudo -s
+# 輸入密碼進入root
+$ npm install -g @vue/cli
+# 安裝後，查看vue版號，檢查是否安裝成功
+$ vue --version
+</code></pre>
+
+<h3 id="reference">Reference</h3>
+
+<hr />
+
+<ul>
+<li><a href="https://cli.vuejs.org/guide/" rel="nofollow noreferrer" target="_blank">https://cli.vuejs.org/guide/</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Syuan Shih </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://eva19950630.github.io/2019/19_01_13_vuejs-proj-start/>https://eva19950630.github.io/2019/19_01_13_vuejs-proj-start/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://eva19950630.github.io/tags/vue.js/">
+                    #Vue.js</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://eva19950630.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://eva19950630.github.io/2018/18_11_12_mysql-command-note/" class="prev" rel="prev" title="［MySQL］SQL語法筆記"><i class="iconfont icon-left"></i>&nbsp;［MySQL］SQL語法筆記</a>
+         
+        
+        <a href="https://eva19950630.github.io/2019/19_02_16_python-pyenv-mac-os/" class="next" rel="next" title="［Python］安裝pyenv - Python各版本環境切換(for Mac OS)">［Python］安裝pyenv - Python各版本環境切換(for Mac OS)&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2018 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://eva19950630.github.io/">Syuan Shih</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

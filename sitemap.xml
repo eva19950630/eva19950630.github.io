@@ -3,6 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
+      <loc>https://eva19950630.github.io/2019/19_02_16_python-pyenv-mac-os/</loc>
+      
+      <lastmod>2019-02-16T16:52:48+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://eva19950630.github.io/2019/19_01_13_vuejs-proj-start/</loc>
+      
+      <lastmod>2019-01-13T11:00:13+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
       <loc>https://eva19950630.github.io/2018/18_11_12_mysql-command-note/</loc>
       
       <lastmod>2018-11-12T11:02:53+08:00</lastmod>
@@ -131,6 +151,18 @@
     </url>
   
     <url>
+      <loc>https://eva19950630.github.io/categories/data-science/</loc>
+      
+      <lastmod>2019-02-16T16:52:48+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://eva19950630.github.io/tags/github/</loc>
       
       <lastmod>2018-10-29T09:50:03+08:00</lastmod>
@@ -205,7 +237,19 @@
     <url>
       <loc>https://eva19950630.github.io/posts/</loc>
       
-      <lastmod>2018-11-12T11:02:53+08:00</lastmod>
+      <lastmod>2019-02-16T16:52:48+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://eva19950630.github.io/tags/python/</loc>
+      
+      <lastmod>2019-02-16T16:52:48+08:00</lastmod>
       
       
       
@@ -217,7 +261,7 @@
     <url>
       <loc>https://eva19950630.github.io/</loc>
       
-      <lastmod>2018-11-12T11:02:53+08:00</lastmod>
+      <lastmod>2019-02-16T16:52:48+08:00</lastmod>
       
       
       
@@ -251,6 +295,18 @@
     </url>
   
     <url>
+      <loc>https://eva19950630.github.io/tags/vue.js/</loc>
+      
+      <lastmod>2019-01-13T11:00:13+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://eva19950630.github.io/categories/web-back-end-development/</loc>
       
       <lastmod>2018-11-12T11:02:53+08:00</lastmod>
@@ -265,7 +321,7 @@
     <url>
       <loc>https://eva19950630.github.io/categories/web-front-end-development/</loc>
       
-      <lastmod>2018-11-04T21:20:00+08:00</lastmod>
+      <lastmod>2019-01-13T11:00:13+08:00</lastmod>
       
       
       
